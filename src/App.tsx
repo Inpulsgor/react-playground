@@ -1,11 +1,14 @@
 import React from 'react';
-import { Logo, Modal } from './components';
+import { Logo, Modal, ColorPicker } from './components';
+import { COLORS } from './components/ColorPicker/helpers';
+import CoffeeLogo from './assets/icons/coffee.svg';
 
 const App = () => {
   return (
     <>
-      <Logo />
+      <Logo logo={CoffeeLogo} />
       <Modal />
+      <ColorPicker colors={COLORS} />
     </>
   );
 };
