@@ -11,6 +11,7 @@
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
     "modern-normalize": "^1.1.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -23,8 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "prettier:check": "prettier --check ./src",
-    "prettier:fix": "prettier --write ./src",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write src",
     "prepare": "husky install"
   },
   "eslintConfig": {
