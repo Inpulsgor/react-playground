@@ -4,10 +4,10 @@ import { Logo, Modal } from './components';
 const App = () => {
   return (
     <>
-			<Logo />
-			<Modal />
-		</>
+      <Logo />
+      <Modal />
+    </>
   );
-}
+};
 
 export default App;
