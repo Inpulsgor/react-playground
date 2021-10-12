@@ -1,8 +1,12 @@
-
+import React from 'react';
+import { Logo, Modal } from './components';
 
 const App = () => {
   return (
-    <div className="App">Test app</div>
+    <>
+			<Logo />
+			<Modal />
+		</>
   );
 }
 
