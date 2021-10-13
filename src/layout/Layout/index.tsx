@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Logo } from '../../components';
 import { Header, Footer, Container } from '../../layout';
+import { IProps } from './interface';
 import CoffeeLogo from '../../assets/icons/coffee.svg';
 import styles from './styles.module.scss';
 
-const Layout = ({ children }) => {
+const Layout: FC<IProps> = ({ children }) => {
   return (
     <div className={styles.layout}>
       <Header>

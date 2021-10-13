@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from './layout';
-import { Modal, ColorPicker } from './components';
+import { Modal, ColorPicker, Counter } from './components';
 import { COLORS } from './components/ColorPicker/helpers';
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
     <Layout>
       <Modal />
       <ColorPicker colors={COLORS} />
+      <Counter initialCount={0} />
     </Layout>
   );
 };
