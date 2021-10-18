@@ -1,0 +1,15 @@
+.todos {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.total {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.completed {
+  display: inline-flex;
+  margin-bottom: 16px;
+}
