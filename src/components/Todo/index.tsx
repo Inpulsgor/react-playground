@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 import { TodoList } from '../';
-import initialTodos from './todos.json';
-import { IProps, IState } from './interface';
+// import initialTodos from './todos.json';
+// import { IProps, IState } from './interface';
 import styles from './styles.module.scss';
 
 class Todo extends Component<IProps, IState> {
