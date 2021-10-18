@@ -6,3 +6,6 @@ type Color = {
 export interface IProps {
   colors: Array<Color>;
 }
+export interface IState {
+  activeColor: number;
+}

@@ -4,6 +4,12 @@
   padding: 10px;
 }
 
+.label {
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
 .colorItem {
   display: inline-block;
   width: 40px;
@@ -13,4 +19,10 @@
   &:not(:last-child) {
     margin-right: 10px;
   }
+}
+
+.colorActive {
+  transition: transform 250ms linear;
+  transform: scale(1.14);
+  border-radius: 5px;
 }

@@ -28,18 +28,18 @@ class Counter extends Component<IProps, IState> {
         <span className={styles.value}>{count}</span>
         <div className={styles.controls}>
           <button
-            className={cn(styles.btn, styles.inc)}
-            onClick={this.handleIncrement}
-            type="button"
-          >
-            Plus 1
-          </button>
-          <button
             className={cn(styles.btn, styles.dec)}
             onClick={this.handleDecrement}
             type="button"
           >
             Minus 1
+          </button>
+          <button
+            className={cn(styles.btn, styles.inc)}
+            onClick={this.handleIncrement}
+            type="button"
+          >
+            Plus 1
           </button>
         </div>
       </div>
