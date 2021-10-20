@@ -15,9 +15,7 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
-  handleSubmitForm = data => {
-    console.log(data);
-  };
+  handleSubmitForm = data => console.log(data);
 
   render() {
     const { todos } = this.state;
