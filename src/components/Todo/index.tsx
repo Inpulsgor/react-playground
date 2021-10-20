@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TodoList, Form } from '../';
-import initialTodos from './todos.json';
 import { IProps, IState } from './interface';
+import initialTodos from './todos.json';
 import styles from './styles.module.scss';
 
 class Todo extends Component<IProps, IState> {
@@ -15,13 +15,17 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
+  handleSubmitForm = data => {
+    console.log(data);
+  };
+
   render() {
     const { todos } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
 
     return (
       <div className={styles.todos}>
-        <Form />
+        <Form formSubmit={this.handleSubmitForm} />
 
         <span className={styles.total}>Total: {todos.length}</span>
         <span className={styles.completed}>
