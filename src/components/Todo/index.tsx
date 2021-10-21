@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TodoList, Form } from '../';
+import shortid from 'shortid';
+import { TodoList, TodoEditor, TodoFilter, Form } from '../';
 import { IProps, IState } from './interface';
 import initialTodos from './todos.json';
 import styles from './styles.module.scss';
@@ -7,6 +8,23 @@ import styles from './styles.module.scss';
 class Todo extends Component<IProps, IState> {
   state = {
     todos: initialTodos,
+    filter: '',
+  };
+
+  handleAddTodo = message => {
+    const todo = {
+      id: shortid.generate(),
+      text: message,
+      completed: false,
+    };
+
+    this.setState(prevState => ({
+      todos: [todo, ...prevState.todos],
+    }));
+  };
+
+  handleChange = ({ currentTarget }) => {
+    this.setState({ filter: currentTarget.value });
   };
 
   handleDelete = (ID: string) => {
@@ -32,9 +50,19 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
+  getFilteredTodos = () => {
+    const { todos, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return todos.filter(todo =>
+      todo.text.toLowerCase().includes(normalizedFilter),
+    );
+  };
+
   render() {
-    const { todos } = this.state;
+    const { todos, filter } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
+    const visibleTodos = this.getFilteredTodos();
 
     return (
       <div className={styles.todos}>
@@ -45,9 +73,12 @@ class Todo extends Component<IProps, IState> {
           Completed: {completedTodos.length}
         </span>
 
+        <TodoFilter inputValue={filter} handleChange={this.handleChange} />
+        <TodoEditor onAddTodo={this.handleAddTodo} />
+
         {todos.length > 0 && (
           <TodoList
-            todos={todos}
+            todos={visibleTodos}
             onDeleteTodo={this.handleDelete}
             onToggleComplete={this.toggleComplete}
           />
