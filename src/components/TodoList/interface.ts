@@ -7,4 +7,5 @@ type Todo = {
 export interface IProps {
   todos: Array<Todo>;
   onDeleteTodo: (id: string) => void;
+  onToggleComplete: (id: string) => void;
 }

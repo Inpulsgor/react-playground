@@ -17,6 +17,21 @@ class Todo extends Component<IProps, IState> {
 
   handleSubmitForm = data => console.log(data);
 
+  toggleComplete = todoID => {
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        if (todo.id === todoID) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+
+        return todo;
+      }),
+    }));
+  };
+
   render() {
     const { todos } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
@@ -31,7 +46,11 @@ class Todo extends Component<IProps, IState> {
         </span>
 
         {todos.length > 0 && (
-          <TodoList todos={todos} onDeleteTodo={this.handleDelete} />
+          <TodoList
+            todos={todos}
+            onDeleteTodo={this.handleDelete}
+            onToggleComplete={this.toggleComplete}
+          />
         )}
       </div>
     );
