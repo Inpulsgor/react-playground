@@ -1,5 +1,5 @@
 // Принимает ключ `key` по которому будет произведена выборка.
-export const load = key => {
+export const localStorageGet = key => {
   try {
     const serializedState = localStorage.getItem(key);
 
@@ -10,7 +10,7 @@ export const load = key => {
 };
 
 // Принимает ключ `key` и значение `value`.
-export const save = (key, value) => {
+export const localStorageSave = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
     localStorage.setItem(key, serializedState);

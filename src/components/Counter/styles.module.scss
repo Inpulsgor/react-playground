@@ -1,8 +1,13 @@
+@import 'scss/utils/variables.scss';
+
 .counter {
   display: block;
-  max-width: 200px;
+  margin: 0 auto 50px;
   padding: 10px;
+  max-width: fit-content;
+  border-radius: 6px;
   border: 1px solid #f3f3f3;
+  box-shadow: 5px 5px 28px 3px rgba(0, 0, 0, 0.75);
 }
 
 .value {
@@ -17,13 +22,16 @@
 }
 
 .btn {
+  border-radius: 4px;
   padding: 6px 12px;
+  color: $white;
 }
 
 .inc {
-  background-color: #0084ff;
+  background-color: $btnIncrement;
 }
 
 .dec {
-  background-color: #ff2e2e;
+  margin-right: 6px;
+  background-color: $btnDecrement;
 }

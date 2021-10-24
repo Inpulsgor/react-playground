@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 import { TodoList, TodoEditor, TodoFilter, Form } from '../';
 import { IProps, IState } from './interface';
+import {
+  localStorageSave,
+  localStorageGet,
+} from '../../services/helpers/localStorage';
 import initialTodos from './todos.json';
 import styles from './styles.module.scss';
 
@@ -10,6 +14,17 @@ class Todo extends Component<IProps, IState> {
     todos: initialTodos,
     filter: '',
   };
+
+  componentDidMount() {
+    const todos = localStorageGet('todos');
+
+    if (todos?.length) this.setState({ todos: todos });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.todos !== prevState.todos)
+      localStorageSave('todos', this.state.todos);
+  }
 
   handleAddTodo = message => {
     const todo = {

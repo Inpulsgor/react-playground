@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Layout } from './layout';
 import { Modal, ColorPicker, Counter, Dropdown, Todo } from './components';
 import { COLORS } from './components/ColorPicker/helpers';
 
-const App = () => {
+const App: FC = () => {
   return (
     <Layout>
       <Modal />

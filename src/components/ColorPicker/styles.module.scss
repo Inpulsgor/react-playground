@@ -1,12 +1,15 @@
 .colorList {
-  display: inline-block;
-  margin: 0;
-  padding: 10px;
+  display: block;
+  margin: 0 auto 50px;
+  padding: 10px 14px;
+  max-width: fit-content;
+  border-radius: 6px;
+  box-shadow: 5px 5px 28px 3px rgba(0, 0, 0, 0.75);
 }
 
 .label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
@@ -14,7 +17,6 @@
   display: inline-block;
   width: 40px;
   height: 40px;
-  box-shadow: 2px 5px 10px -3px rgba(0, 0, 0, 0.66);
 
   &:not(:last-child) {
     margin-right: 10px;
