@@ -23,7 +23,17 @@ class Dropdown extends Component<IProps, IState> {
           {visible ? 'Hide' : 'Show'}
         </button>
 
-        {visible && <div className={styles.menu}>Menu</div>}
+        {visible && (
+          <ul className={styles.menu}>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+            <li className={styles.menuItem}>Menu item</li>
+          </ul>
+        )}
       </div>
     );
   }

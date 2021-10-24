@@ -1,19 +1,29 @@
 .dropdown {
   display: inline-block;
   position: relative;
-  width: 400px;
-  border: 1px solid #000;
+  width: 200px;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 5px 5px 28px 3px #000000bf;
 }
 
 .menu {
   position: absolute;
+  overflow-y: auto;
   top: 100%;
   left: 0;
+  height: 155px;
   width: 100%;
-  padding: 20px;
   text-align: center;
   background-color: teal;
   color: #fff;
+}
+
+.menuItem {
+  padding: 6px 10px;
+
+  &:nth-child(2n) {
+    background-color: #008f8f;
+  }
 }
 
 .toggle {

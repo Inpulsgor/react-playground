@@ -1,5 +1,8 @@
 .form {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   max-width: 360px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  box-shadow: 5px 5px 28px 3px rgba(0, 0, 0, 0.75);
 }

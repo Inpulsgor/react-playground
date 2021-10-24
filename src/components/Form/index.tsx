@@ -49,7 +49,7 @@ class Form extends Component<IProps, IState> {
           onChange={this.handleChange}
         />
 
-        <label htmlFor={this.emailID}>Name</label>
+        <label htmlFor={this.emailID}>Email</label>
         <input
           type="email"
           id={this.emailID}

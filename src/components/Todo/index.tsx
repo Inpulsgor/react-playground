@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-import { TodoList, TodoEditor, TodoFilter, Form } from '../';
+import { TodoList, TodoEditor, TodoFilter } from '../';
 import { IProps, IState } from './interface';
 import {
   localStorageSave,
@@ -48,8 +48,6 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
-  handleSubmitForm = data => console.log(data);
-
   toggleComplete = todoID => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => {
@@ -81,8 +79,6 @@ class Todo extends Component<IProps, IState> {
 
     return (
       <div className={styles.todos}>
-        <Form formSubmit={this.handleSubmitForm} />
-
         <span className={styles.total}>Total: {todos.length}</span>
         <span className={styles.completed}>
           Completed: {completedTodos.length}
