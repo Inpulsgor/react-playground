@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { Component } from 'react';
 import { Layout } from './layout';
 import {
   Modal,
@@ -10,19 +10,37 @@ import {
 } from './components';
 import { COLORS } from './components/ColorPicker/helpers';
 
-const App: FC = () => {
-  const handleSubmitForm = data => console.log(data);
+interface IProps {}
+interface IState {
+  showModal: boolean;
+}
 
-  return (
-    <Layout>
-      <Modal />
-      <ColorPicker colors={COLORS} />
-      <Counter initialCount={0} />
-      <Dropdown />
-      <Form formSubmit={handleSubmitForm} />
-      <Todo />
-    </Layout>
-  );
-};
+class App extends Component<IProps, IState> {
+  state = {
+    showModal: false,
+  };
+
+  handleSubmitForm = data => console.log(data);
+  toggleModal = () =>
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+
+  render() {
+    const { showModal } = this.state;
+
+    return (
+      <Layout>
+        <button type="button" onClick={this.toggleModal}>
+          Show modal
+        </button>
+        {showModal && <Modal />}
+        <ColorPicker colors={COLORS} />
+        <Counter initialCount={0} />
+        <Dropdown />
+        <Form formSubmit={this.handleSubmitForm} />
+        <Todo />
+      </Layout>
+    );
+  }
+}
 
 export default App;

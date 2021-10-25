@@ -1,13 +1,19 @@
-import React, { FC } from 'react';
-import { IProps } from './interface';
+import React, { Component } from 'react';
+import { IProps, IState } from './interface';
 import styles from './styles.module.scss';
 
-const Modal: FC<IProps> = ({ children }) => {
-  return (
-    <div className={styles.backdrop}>
-      <div className={styles.modal}>{children}</div>
-    </div>
-  );
-};
+class Modal extends Component<IProps, IState> {
+  state = {};
+
+  render() {
+    const { children } = this.props;
+
+    return (
+      <div className={styles.backdrop}>
+        <div className={styles.modal}>{children}</div>
+      </div>
+    );
+  }
+}
 
 export default Modal;
