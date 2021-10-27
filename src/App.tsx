@@ -10,12 +10,7 @@ import {
   Button,
 } from './components';
 import { COLORS } from './components/ColorPicker/helpers';
-
-interface IProps {}
-interface IState {
-  showModal: boolean;
-}
-
+import { IProps, IState } from './types/interface';
 class App extends Component<IProps, IState> {
   state = {
     showModal: false,
