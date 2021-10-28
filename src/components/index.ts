@@ -10,3 +10,4 @@ export { default as TodoEditor } from './TodoEditor';
 export { default as TodoFilter } from './TodoFilter';
 export { default as Form } from './Form';
 export { default as Button } from './Button';
+export { default as Tabs } from './Tabs';

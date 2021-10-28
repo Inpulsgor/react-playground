@@ -8,6 +8,7 @@ import {
   Todo,
   Form,
   Button,
+  Tabs,
 } from './components';
 import { COLORS } from './components/ColorPicker/helpers';
 import { IProps, IState } from './types/interface';
@@ -46,6 +47,7 @@ class App extends Component<IProps, IState> {
         <Dropdown />
         <Form formSubmit={this.handleSubmitForm} />
         <Todo />
+        <Tabs />
       </Layout>
     );
   }
