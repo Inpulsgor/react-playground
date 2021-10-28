@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { IProps, IState } from './interface';
 import styles from './styles.module.scss';
 import tabs from './tabs.json';
 
-class Tabs extends Component<IProps, IState> {
+class Tabs extends PureComponent<IProps, IState> {
   state = {
     activeTabIndex: 0,
   };
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  // 	return nextState.activeTabIndex !== this.state.activeTabIndex;
+  // };
 
   setActiveIndex = index => {
     this.setState({ activeTabIndex: index });
