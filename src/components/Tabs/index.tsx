@@ -25,6 +25,7 @@ class Tabs extends PureComponent<IProps, IState> {
         <div className={styles.controls}>
           {tabs.map((tab, index) => (
             <button
+              className={styles.control}
               type="button"
               key={tab.label}
               onClick={() => this.setActiveIndex(index)}
