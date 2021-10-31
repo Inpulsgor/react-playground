@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TodoItem } from '../';
+import { TodoItem } from '../../';
 import { IProps } from './interface';
 import styles from './styles.module.scss';
 

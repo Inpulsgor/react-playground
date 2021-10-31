@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-import { TodoList, TodoEditor, TodoFilter } from '../';
+import { TodoList, TodoEditor, TodoFilter } from '../../';
 import { IProps, IState } from './interface';
 import {
   localStorageSave,
   localStorageGet,
-} from '../../services/helpers/localStorage';
+} from '../../../services/helpers/localStorage';
 import initialTodos from './todos.json';
 import styles from './styles.module.scss';
 
