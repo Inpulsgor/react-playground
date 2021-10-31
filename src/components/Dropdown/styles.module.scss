@@ -1,21 +1,28 @@
 .dropdown {
-  display: inline-block;
   position: relative;
+
+  display: inline-block;
+
   width: 200px;
+
   border-radius: 6px 6px 0 0;
   box-shadow: 5px 5px 28px 3px #000000bf;
 }
 
 .menu {
   position: absolute;
-  overflow-y: auto;
   top: 100%;
   left: 0;
-  height: 155px;
+
+  overflow-y: auto;
+
   width: 100%;
+  height: 155px;
+
   text-align: center;
-  background-color: teal;
+
   color: #fff;
+  background-color: teal;
 }
 
 .menuItem {
@@ -27,8 +34,9 @@
 }
 
 .toggle {
-  padding: 20px;
   width: 100%;
   height: 100%;
+  padding: 20px;
+
   background-color: transparent;
 }

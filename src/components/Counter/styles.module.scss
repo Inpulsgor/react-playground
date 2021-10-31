@@ -2,17 +2,21 @@
 
 .counter {
   display: inline-block;
-  padding: 10px 14px;
+
   max-width: fit-content;
-  border-radius: 6px;
+  padding: 10px 14px;
+
   border: 1px solid #f3f3f3;
-  box-shadow: 5px 5px 28px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  // box-shadow: 5px 5px 28px 3px rgb(0 0 0 / 75%);
 }
 
 .value {
   display: block;
-  text-align: center;
+
   margin-bottom: 10px;
+
+  text-align: center;
 }
 
 .controls {
@@ -21,9 +25,10 @@
 }
 
 .btn {
-  border-radius: 4px;
   padding: 6px 12px;
+
   color: $white;
+  border-radius: 4px;
 }
 
 .inc {
@@ -32,5 +37,6 @@
 
 .dec {
   margin-right: 6px;
+
   background-color: $btnDecrement;
 }

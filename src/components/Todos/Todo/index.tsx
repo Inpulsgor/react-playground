@@ -3,7 +3,7 @@ import shortid from 'shortid';
 import { TodoList, TodoEditor, TodoFilter } from '../../';
 import { IProps, IState } from './interface';
 import {
-  localStorageSave,
+  localStorageSet,
   localStorageGet,
 } from '../../../services/helpers/localStorage';
 import initialTodos from './todos.json';
@@ -16,14 +16,14 @@ class Todo extends Component<IProps, IState> {
   };
 
   componentDidMount() {
-    const todos = localStorageGet('todos');
+    const storageTodos = localStorageGet('todos');
 
-    if (todos?.length) this.setState({ todos: todos });
+    if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.todos !== prevState.todos)
-      localStorageSave('todos', this.state.todos);
+      localStorageSet('todos', this.state.todos);
   }
 
   handleAddTodo = message => {

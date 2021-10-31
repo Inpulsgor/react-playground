@@ -12,7 +12,7 @@ class Tabs extends PureComponent<IProps, IState> {
   // 	return nextState.activeTabIndex !== this.state.activeTabIndex;
   // };
 
-  setActiveIndex = index => {
+  setActiveIndex = (index: number): void => {
     this.setState({ activeTabIndex: index });
   };
 

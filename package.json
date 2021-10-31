@@ -23,10 +23,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src",
-    "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write src",
-    "stylelint": "stylelint \"**/*.css\" --fix",
+    "lint:check": "eslint ./src",
+    "lint:fix": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "prettier:check": "prettier --check ./src",
+    "prettier:fix": "prettier --write ./src",
+    "stylelint": "stylelint \"**/*.scss\" --fix",
+    "type-check": "./node_modules/typescript/bin/tsc --noEmit --skipLibCheck",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -61,7 +63,11 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-order-config-standard": "^0.1.3"
   },
   "lint-staged": {
     "src/**/*.{json,css,scss,md}": [

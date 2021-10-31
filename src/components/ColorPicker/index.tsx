@@ -8,7 +8,8 @@ class ColorPicker extends Component<IProps, IState> {
     activeColor: 0,
   };
 
-  setActiveColor = (index: number) => this.setState({ activeColor: index });
+  setActiveColor = (index: number): void =>
+    this.setState({ activeColor: index });
 
   render() {
     const { activeColor } = this.state;

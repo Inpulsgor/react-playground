@@ -3,7 +3,5 @@ import { ReactNode } from 'react';
 export interface IProps {
   showModal: boolean;
   toggleModal: () => void;
-  children?: ReactNode | JSX.Element;
+  children?: ReactNode;
 }
-
-export interface IState {}

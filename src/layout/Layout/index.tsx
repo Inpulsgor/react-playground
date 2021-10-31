@@ -5,16 +5,14 @@ import { IProps } from './interface';
 import CoffeeLogo from '../../assets/icons/coffee.svg';
 import styles from './styles.module.scss';
 
-const Layout: FC<IProps> = ({ children }) => {
-  return (
-    <div className={styles.layout}>
-      <Header>
-        <Logo logo={CoffeeLogo} />
-      </Header>
-      <Container>{children}</Container>
-      <Footer />
-    </div>
-  );
-};
+const Layout: FC<IProps> = ({ children }) => (
+  <div className={styles.layout}>
+    <Header>
+      <Logo logo={CoffeeLogo} />
+    </Header>
+    <Container>{children}</Container>
+    <Footer />
+  </div>
+);
 
 export default Layout;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import { IProps, IState } from './interface';
+import { IProps } from './interface';
 import styles from './styles.module.scss';
 
-const rootModal: any = document.querySelector('#root-modal');
+const rootModal = document.querySelector('#root-modal') as HTMLDivElement;
 
-class Modal extends Component<IProps, IState> {
+class Modal extends Component<IProps> {
   state = {};
 
   componentDidMount() {
