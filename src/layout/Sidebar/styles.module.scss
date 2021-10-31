@@ -1,0 +1,9 @@
+@import 'scss/main.scss';
+
+.sidebar {
+  grid-area: sidebar;
+
+  @include max(765) {
+    display: none;
+  }
+}

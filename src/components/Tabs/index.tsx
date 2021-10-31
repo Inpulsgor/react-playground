@@ -8,6 +8,7 @@ class Tabs extends PureComponent<IProps, IState> {
     activeTabIndex: 0,
   };
 
+  //! TODO: same as PureComponent
   // shouldComponentUpdate(nextProps, nextState) {
   // 	return nextState.activeTabIndex !== this.state.activeTabIndex;
   // };
