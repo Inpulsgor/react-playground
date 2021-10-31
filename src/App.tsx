@@ -27,12 +27,12 @@ class App extends Component<IProps, IState> {
 
     return (
       <Layout>
-        <button type="button" onClick={this.toggleModal}>
+        <Button style="toggle" onClick={this.toggleModal}>
           Show modal
-        </button>
+        </Button>
         {showModal && (
           <Modal showModal={showModal} toggleModal={this.toggleModal}>
-            <Button type="close" onClick={this.toggleModal} />
+            <Button style="close" onClick={this.toggleModal} />
             <span>Modal</span>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae,

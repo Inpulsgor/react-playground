@@ -1,6 +1,12 @@
 export interface IProps {
-  type: string;
+  style: string;
+  type?: Type;
   isVisible?: boolean;
   onClick?: () => void;
-  onClose?: () => void;
+}
+
+enum Type {
+  submit = 'submit',
+  button = 'button',
+  reset = 'reset',
 }
