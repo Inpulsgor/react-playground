@@ -17,7 +17,9 @@ class App extends Component<IProps, IState> {
     showModal: false,
   };
 
-  handleSubmitForm = data => console.log(data);
+  handleSubmitForm = data => {
+    console.log(data);
+  };
 
   toggleModal = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
