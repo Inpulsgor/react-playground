@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
 import { IProps } from './interface';
 import styles from './styles.module.scss';

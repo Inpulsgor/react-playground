@@ -4,3 +4,4 @@ export { default as Layout } from './Layout';
 export { default as Main } from './Main';
 export { default as Sidebar } from './Sidebar';
 export { default as Container } from './Container';
+export { default as Nav } from './Nav';
