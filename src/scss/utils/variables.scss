@@ -5,14 +5,27 @@
 $NotoSans: 'Noto Sans', monospace;
 
 /*
- * COLORS
+ * FONT COLORS
+ */
+
+$mainFont: #d6d8da;
+
+/*
+ * BACKGROUND COLORS
  */
 
 $white: #fff;
-$bodyBackground: #f5f6f8;
+$bodyBackground: #24292e;
+$mainBackground: #31363f;
 $btnIncrement: #0084ff;
 $btnDecrement: #ff2e2e;
 $yellow: #eab809;
+
+/*
+ * BACKGROUND COLORS
+ */
+
+$mainBorder: #181a1f;
 
 /*
  * TRANSITIONS

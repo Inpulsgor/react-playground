@@ -8,7 +8,11 @@ const Nav: FC = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         {routes.length &&
-          routes.map(route => <Link to={route.path}>{route.label}</Link>)}
+          routes.map(route => (
+            <Link key={route.label} to={route.path}>
+              {route.label}
+            </Link>
+          ))}
       </ul>
     </nav>
   );
