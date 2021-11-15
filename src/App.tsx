@@ -1,59 +1,19 @@
-import React, { Component } from 'react';
+import { FC } from 'react';
+import { Route, Routes } from "react-router-dom";
 import { Layout } from './layout';
-import {
-  Modal,
-  ColorPicker,
-  Counter,
-  Dropdown,
-  Todo,
-  Form,
-  Button,
-  Tabs,
-} from './components';
-import { COLORS } from './components/ColorPicker/helpers';
-import { IProps, IState } from './types/interface';
-class App extends Component<IProps, IState> {
-  state = {
-    showModal: false,
-  };
+import { ROUTES } from 'src/types/enum';
+import HomePage from 'src/pages/Home';
+import PlaygroundPage from 'src/pages/Playground';
 
-  handleSubmitForm = data => {
-    console.log(data);
-  };
-
-  toggleModal = () => {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  };
-
-  render() {
-    const { showModal } = this.state;
-
-    return (
-      <Layout>
-        <Button style="toggle" onClick={this.toggleModal}>
-          Show modal
-        </Button>
-        {showModal && (
-          <Modal showModal={showModal} toggleModal={this.toggleModal}>
-            <Button style="close" onClick={this.toggleModal} />
-            <span>Modal</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae,
-              repellat. Earum quidem iusto voluptas soluta maxime consequuntur,
-              officiis doloremque nostrum unde obcaecati sed nobis sint ab ea
-              ullam porro placeat.
-            </p>
-          </Modal>
-        )}
-        <ColorPicker colors={COLORS} />
-        <Counter initialCount={0} />
-        <Dropdown />
-        <Form formSubmit={this.handleSubmitForm} />
-        <Todo />
-        <Tabs />
-      </Layout>
-    );
-  }
-}
+const App: FC = () => {
+	return (
+		<Layout>
+			<Routes>
+				<Route path={ROUTES.home} element={<HomePage />} />
+				<Route path={ROUTES.playground} element={<PlaygroundPage />} />
+			</Routes>
+		</Layout>
+	);
+};
 
 export default App;

@@ -2,7 +2,7 @@
 
 .sidebar {
   grid-area: sidebar;
-  background-color: #e2e2e2;
+  // background-color: #e2e2e2;
 
   @include max(765) {
     display: none;

@@ -11,3 +11,4 @@ export { default as TodoFilter } from './Todos/TodoFilter';
 export { default as Form } from './Form';
 export { default as Button } from './Button';
 export { default as Tabs } from './Tabs';
+export { default as Tetris } from './Tetris';

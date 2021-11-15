@@ -239,17 +239,29 @@
 //     this.updateBoard(this.state);
 //   };
 
-//   render() {
+  // render() {
 //     const board =  this.state.board.map( (val, pos) => <Square key={pos} name={pos} color={val}/>);
 
-//     return (
+    // return (
 //       <div className="App">
 //         <h1>  Tetris  {this.state.score}</h1>
 //         <p>  Right|Left|Down|Z|X|Space </p>
 //         <div style={style}> {board} </div>
 //       </div>
-//     );
+    // );
 //   }
 // }
 
 // export default Tetris;
+
+import React from 'react';
+
+const index = () => {
+	return (
+		<div>
+			
+		</div>
+	);
+};
+
+export default index;
