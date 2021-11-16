@@ -1,4 +1,11 @@
+@import 'scss/utils/variables.scss';
+
 .list {
   display: flex;
   flex-direction: column;
+}
+
+.active {
+  font-weight: 700;
+  color: $darkFont;
 }
