@@ -7,6 +7,6 @@
   grid-area: header;
 
   @include min(768) {
-    display: none;
+    // display: none;
   }
 }
