@@ -12,16 +12,27 @@ const Nav = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         {routes.length &&
-          routes.map(({ path, label }) => (
-            <NavLink
-              key={label}
-              to={path}
-              className={cn(styles.link, {
-                [styles.active]: path === pathname,
-              })}
-            >
-              {label}
-            </NavLink>
+          routes.map(({ path, label, sub }) => (
+            <li>
+              <NavLink
+                key={label}
+                to={path}
+                className={cn(styles.link, {
+                  [styles.active]: path === pathname,
+                })}
+              >
+                {label}
+                {sub.length > 0 && (
+                  <ul className={styles.subList}>
+                    {sub.map(({ label, path }) => (
+                      <NavLink key={label} to={path} className={styles.subLink}>
+                        {label}
+                      </NavLink>
+                    ))}
+                  </ul>
+                )}
+              </NavLink>
+            </li>
           ))}
       </ul>
     </nav>
