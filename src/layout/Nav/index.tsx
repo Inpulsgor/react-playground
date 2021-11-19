@@ -4,8 +4,9 @@ import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import routes from 'src/services/routes';
 import styles from './styles.module.scss';
+import { NavProps } from './interface';
 
-const Nav: FC = () => {
+const Nav: FC<NavProps> = () => {
   const { pathname } = useLocation();
 
   return (
