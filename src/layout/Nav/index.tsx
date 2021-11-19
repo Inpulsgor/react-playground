@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import routes from 'src/services/routes';
 import styles from './styles.module.scss';
 
-const Nav = () => {
+const Nav: FC = () => {
   const { pathname } = useLocation();
 
   return (
