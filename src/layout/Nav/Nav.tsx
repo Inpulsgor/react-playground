@@ -7,7 +7,8 @@ import { NavProps } from './interface';
 const Nav: FC<NavProps> = () => (
   <nav className={styles.nav}>
     <ul className={styles.list}>
-      {routes && routes.map(route => <NavItem route={route} />)}
+      {routes &&
+        routes.map(route => <NavItem key={route.label} route={route} />)}
     </ul>
   </nav>
 );
