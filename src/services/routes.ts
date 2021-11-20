@@ -9,7 +9,10 @@ const subRoutes: SubRouteTypes = {
       label: 'Tetris',
       exact: true,
       component: lazy(
-        () => import('src/components/Tetris' /* webpackChunkName: "Tetris" */),
+        () =>
+          import(
+            'src/components/Tetris/Tetris' /* webpackChunkName: "Tetris" */
+          ),
       ),
     },
     {
@@ -17,7 +20,8 @@ const subRoutes: SubRouteTypes = {
       label: '2048',
       exact: true,
       component: lazy(
-        () => import('src/components/Tetris' /* webpackChunkName: "2048" */),
+        () =>
+          import('src/components/Tetris/Tetris' /* webpackChunkName: "2048" */),
       ),
     },
   ],

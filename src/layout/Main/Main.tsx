@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { Container } from '../';
+import { Container } from '..';
 import { IProps } from './interface';
 import styles from './styles.module.scss';
 

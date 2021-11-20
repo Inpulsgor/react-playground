@@ -9,6 +9,7 @@ export enum ROUTES {
   recovery = '/recovery',
   registration = '/registration',
   playground = '/playground',
+  tetris = '/playground/tetris',
   modal = '/playground/modal',
   colors = '/playground/colors',
   tabs = '/playground/tabs',

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { IProps, IState } from './interface';
 import styles from './styles.module.scss';
-import tabs from './tabs.json';
+import tabs from 'src/services/helpers/tabs.json';
 
 class Tabs extends PureComponent<IProps, IState> {
   state = {

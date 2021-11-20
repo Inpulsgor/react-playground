@@ -14,7 +14,7 @@ export interface SubRouteTypes {
   playground: Array<SubRouteItem>;
 }
 
-interface SubRouteItem {
+export interface SubRouteItem {
   path: string;
   label: string;
   exact: boolean;

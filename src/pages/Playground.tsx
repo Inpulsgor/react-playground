@@ -9,7 +9,7 @@ import {
   Button,
   Tabs,
 } from 'src/components';
-import { COLORS } from 'src/components/ColorPicker/helpers';
+import { COLORS } from 'src/services/helpers/colors';
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);
