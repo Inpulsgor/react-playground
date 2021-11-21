@@ -1,8 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { instance } from 'src/services/api/axios';
-import { AppState } from 'src/store/store';
-import { ROUTES } from 'src/types/enum';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthStates } from 'src/types/store/auth';
+import { instance } from 'src/services/api/axios';
+import { AppStore } from 'src/store/store';
+import { ROUTES } from 'src/types/enum';
 
 const initialState = {
   accessToken: '',
@@ -14,11 +14,13 @@ const initialState = {
 export const getCurrentUser = createAsyncThunk(
   'auth/current',
   async (credentials, thunkAPI) => {
-    const state = thunkAPI.getState() as AppState;
+    const state = thunkAPI.getState() as AppStore;
+
     try {
       const response = await instance.get(`/admin/get`, {
         headers: { Authorization: `Bearer ${state.auth.accessToken}` },
       });
+
       return { currentUser: response.data };
     } catch (error: any) {
       throw new Error(error);
@@ -28,7 +30,7 @@ export const getCurrentUser = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (credentials: any, thunkAPI) => {
+  async <T>(credentials: T, thunkAPI) => {
     try {
       const response = await instance.post(`/admin/login`, credentials);
       // instance.defaults.headers.common['Authorization'] = response.data.accessToken;
@@ -47,14 +49,18 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (_credentials, thunkAPI) => {
     try {
-      const state = thunkAPI.getState() as AppState;
-      // await axios.post(`${process.env.REACT_APP_CORE_API_URL}/admin/logout`, null, {
-      //   headers: { Authorization: `Bearer ${state.authReducer.accessToken}` },
-      // });
+      const state = thunkAPI.getState() as AppStore;
+      await instance.post(
+        `${process.env.REACT_APP_CORE_API_URL}/admin/logout`,
+        null,
+        {
+          headers: { Authorization: `Bearer ${state.authReducer.accessToken}` },
+        },
+      );
       localStorage.removeItem('refresh');
       reset();
       window.location.href = ROUTES.home;
-    } catch (error: any) {
+    } catch (error) {
       thunkAPI.rejectWithValue({ error: error.message });
     }
   },
@@ -109,5 +115,7 @@ export const authSlice = createSlice({
     });
   },
 });
+
+export default authSlice.reducer;
 
 export const { reset, updateAccessToken } = authSlice.actions;
