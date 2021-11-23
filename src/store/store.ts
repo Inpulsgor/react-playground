@@ -1,47 +1,28 @@
-import {
-  configureStore,
-  getDefaultMiddleware,
-  ThunkAction,
-  Action,
-} from '@reduxjs/toolkit';
-import logger from 'redux-logger';
-
-import {
-  persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore } from 'redux-persist';
 import rootReducer from './rootReducer';
+import middleware from './middleware';
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-  logger,
-];
+/*
+ * STORE
+ */
 
-// STORE
-const store = configureStore({
-  reducer: rootReducer,
-  middleware,
-  devTools: process.env.NODE_ENV !== 'production', // enabled only in development mode
-});
+const setupStore = () => {
+  return configureStore({
+    reducer: rootReducer,
+    middleware,
+    devTools: process.env.NODE_ENV !== 'production', // enabled only in development mode
+  });
+};
 
-export type AppState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  AppState,
-  undefined,
-  Action<string>
->;
+/*
+ * STORE TYPES
+ */
 
-const persistor = persistStore(store);
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];
 
-export default { store, persistor };
+const persistor = persistStore(setupStore());
+
+export default { store: setupStore(), persistor };

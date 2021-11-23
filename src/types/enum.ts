@@ -3,6 +3,11 @@ export enum ButtonTypes {
   toggle = 'toggle',
 }
 
+export enum LoadingStatus {
+  IDLE = 'idle',
+  LOADING = 'loading',
+}
+
 export enum ROUTES {
   home = '/',
   login = '/login',

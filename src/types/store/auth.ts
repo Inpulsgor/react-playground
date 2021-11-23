@@ -1,13 +1,8 @@
 import { SerializedError } from '@reduxjs/toolkit';
-
-export enum AuthStates {
-  IDLE = 'idle',
-  LOADING = 'loading',
-}
-
-export interface AuthSliceState {
-  accessToken: string;
-  loading: AuthStates;
-  currentUser: Record<string, unknown>;
-  error?: SerializedError;
+import { LoadingStatus } from 'src/types/enum';
+export interface AuthState {
+  loading: LoadingStatus;
+  accessToken: string | null;
+  currentUser: Record<string, unknown> | null;
+  error: SerializedError | null | unknown;
 }
