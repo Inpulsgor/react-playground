@@ -9,7 +9,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const response = await api.loginRequest(credentials);
+      const response = await api.LOGIN(credentials);
 
       thunkAPI.dispatch(updateAccessToken(response.data.accessToken));
 
@@ -24,7 +24,7 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (credentials, thunkAPI) => {
     try {
-      const response = await api.logoutRequest(credentials);
+      const response = await api.LOGOUT(credentials);
 
       console.log(`logout`, response);
 
@@ -43,7 +43,7 @@ export const getCurrentUser = createAsyncThunk(
     // const state = thunkAPI.getState() as AppStore;
 
     try {
-      const response = await api.getUserRequest(credentials);
+      const response = await api.GET_USER(credentials);
 
       return { currentUser: response.data };
     } catch (error) {
@@ -56,7 +56,7 @@ export const resetPassword = createAsyncThunk(
   'auth/resetPassword',
   async (credentials, thunkAPI) => {
     try {
-      const response = await api.resetPasswordRequest(credentials);
+      const response = await api.PASSWORD_RESET(credentials);
 
       return response;
     } catch (error) {

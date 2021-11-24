@@ -17,7 +17,7 @@ instance.interceptors.request.use(request => {
 });
 
 // TOKEN
-const token = {
+const TOKEN = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -43,16 +43,15 @@ const refreshAuthLogic = failedRequest => {
 createAuthRefreshInterceptor(instance, refreshAuthLogic);
 
 // AUTH REQUESTS
-const loginRequest = credentials => instance.post(`/login`, credentials);
-const resetPasswordRequest = credentials =>
-  instance.post(`/reset`, credentials);
-const logoutRequest = credentials => instance.post(`/logout`, credentials);
-const getUserRequest = credentials => instance.get(`/user`, credentials);
+const LOGIN = credentials => instance.post(`/login`, credentials);
+const LOGOUT = credentials => instance.post(`/logout`, credentials);
+const PASSWORD_RESET = credentials => instance.post(`/reset`, credentials);
+const GET_USER = credentials => instance.get(`/user`, credentials);
 
 export default {
-  token,
-  loginRequest,
-  logoutRequest,
-  resetPasswordRequest,
-  getUserRequest,
+  TOKEN,
+  LOGIN,
+  LOGOUT,
+  PASSWORD_RESET,
+  GET_USER,
 };
