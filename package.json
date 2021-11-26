@@ -19,8 +19,8 @@
     "stylelint": "stylelint \"**/*.scss\" --fix",
     "type-check": "./node_modules/typescript/bin/tsc --noEmit --skipLibCheck",
     "prepare": "husky install",
-		"format": "prettier --write \"src//*.{js,jsx,ts,tsx}\"",
-		"lint": "eslint \"src//*.{js,jsx,ts,tsx}\" --quiet"
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
   },
   "eslintConfig": {
     "extends": [
@@ -84,11 +84,12 @@
     "@typescript-eslint/parser": "^4.33.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.10.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.0.2",
