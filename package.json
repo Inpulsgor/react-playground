@@ -8,6 +8,7 @@
     "node": ">= 12.13.0"
   },
   "scripts": {
+    "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -17,10 +18,9 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "stylelint": "stylelint \"**/*.scss\" --fix",
-    "type-check": "./node_modules/typescript/bin/tsc --noEmit --skipLibCheck",
-    "prepare": "husky install",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "type-check": "./node_modules/typescript/bin/tsc --noEmit --skipLibCheck"
   },
   "eslintConfig": {
     "extends": [
@@ -89,6 +89,7 @@
     "eslint-plugin-flowtype": "^5.10.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
