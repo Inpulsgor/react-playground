@@ -54,10 +54,13 @@
     "axios-auth-refresh": "^3.2.1",
     "classnames": "^2.3.1",
     "date-fns": "^2.25.0",
+    "i18next": "^21.5.4",
     "modern-normalize": "^1.1.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.2.1",
+    "react-i18next": "^11.14.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
@@ -102,10 +105,10 @@
     "stylelint-order-config-standard": "^0.1.3"
   },
   "lint-staged": {
-    "src/**/*.{json,css,scss,md}": [
+    "**/*.{js,jsx,ts,tsx,json,css,scss}": [
       "prettier --write"
     ],
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
       "prettier --write",
       "eslint --fix"
     ]

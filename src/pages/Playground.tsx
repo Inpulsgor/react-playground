@@ -8,8 +8,8 @@ import {
   Form,
   Button,
   Tabs,
-} from 'src/components';
-import { COLORS } from 'src/services/helpers/colors';
+} from 'components';
+import { COLORS } from 'services/helpers/colors';
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);
