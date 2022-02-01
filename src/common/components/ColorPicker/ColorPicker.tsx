@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import cn from 'classnames';
 import { IProps, IState } from './interface';
 
 class ColorPicker extends Component<IProps, IState> {
@@ -10,7 +9,7 @@ class ColorPicker extends Component<IProps, IState> {
   setActiveColor = (index: number): void =>
     this.setState({ activeColor: index });
 
-  render() {
+  render(): JSX.Element {
     const { activeColor } = this.state;
     const { colors } = this.props;
     const { label } = colors[activeColor];

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from 'common/styles/theme';
-import store from './store/store';
+import store from './redux/store';
 import App from './App';
 import 'modern-normalize/modern-normalize.css';
 

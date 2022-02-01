@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Header, Footer, Main, Sidebar, Nav } from 'layout';
+import { Header, Footer, Main, Sidebar, Nav } from 'common/layout';
 import { IProps } from './interface';
 
 const Layout: FC<IProps> = ({ children }) => (

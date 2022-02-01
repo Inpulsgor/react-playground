@@ -2,20 +2,19 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// SLICES
-import loaderSlice from './loader/loaderSlice';
-import authSlice from './auth/authSlice';
+import loaderSlice from '../entities/loader/redux/loaderSlice';
+import authSlice from '../entities/auth/redux/authSlice';
 
-// CONFIG
-const persistConfig = {
+const authPersistConfig = {
   key: 'auth', // localStorage key name
   storage,
 };
 
-// ROOT REDUCER
 const rootReducer = combineReducers({
   [loaderSlice.name]: loaderSlice.reducer,
-  [authSlice.name]: persistReducer(persistConfig, authSlice.reducer),
+  [authSlice.name]: persistReducer(authPersistConfig, authSlice.reducer),
 });
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 export default rootReducer;

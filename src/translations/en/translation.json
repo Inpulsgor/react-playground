@@ -1,8 +1,38 @@
 {
+  "home": "Home Page",
+  "user": "User Page",
   "meta": {
     "home": {
-      "title": "React playground",
-      "description": "Playground Inc"
+      "title": "Homepage | Playground",
+      "description": ""
+    },
+    "termsOfService": {
+      "title": "Terms of Service | Playground",
+      "description": ""
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy | Playground",
+      "description": ""
+    },
+    "profile": {
+      "title": "Profile | Playground",
+      "description": ""
     }
-  }
+  },
+  "components": {
+    "header": {},
+    "footer": {}
+  },
+  "pages": {
+    "home": {},
+    "metamask": {},
+    "marketplace": {},
+    "profile": {},
+    "privacy_policy": {},
+    "not_found": {}
+  },
+  "errorMessages": {},
+  "legal": {},
+  "static": {},
+  "other": {}
 }

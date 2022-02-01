@@ -1,7 +1,7 @@
 import axios from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
-import { updateAccessToken } from 'store/auth/authSlice';
-import store from 'store/store';
+import { updateAccessToken } from 'entities/auth/redux/authSlice';
+import store from 'redux/store';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_CORE_API_URL,
