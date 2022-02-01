@@ -1,4 +1,4 @@
-import { RouteTypes } from 'src/types/routes.interface';
+import { RouteTypes } from 'types/routes.interface';
 
 export interface NavItemProps {
   route: RouteTypes;

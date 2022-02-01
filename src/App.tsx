@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ROUTES } from 'src/types/enum';
-import HomePage from 'src/pages/Home';
-import LoginPage from 'src/pages/Login';
+import { ROUTES } from 'types/enum';
+import HomePage from 'pages/Home';
+import LoginPage from 'pages/Login';
 import { useAppSelector } from './hooks/useAppDispatch';
 
 const App: FC = () => {

@@ -52,7 +52,6 @@
     "await-mutex": "^1.0.2",
     "axios": "^0.24.0",
     "axios-auth-refresh": "^3.2.1",
-    "classnames": "^2.3.1",
     "date-fns": "^2.25.0",
     "i18next": "^21.5.4",
     "modern-normalize": "^1.1.0",

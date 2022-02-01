@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from 'src/services/api/api';
+import api from 'common/api/api';
 // import { AppStore } from 'src/store/store';
-import { AuthState } from 'src/types/store/auth';
-import { LoadingStatus } from 'src/types/enum';
-import { ROUTES } from 'src/types/enum';
+import { AuthState } from 'types/store/auth';
+import { LoadingStatus } from 'types/enum';
+import { ROUTES } from 'types/enum';
 
 export const login = createAsyncThunk(
   'auth/login',

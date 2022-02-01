@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
-import { Header, Footer, Main, Sidebar, Nav } from 'src/layout';
+import { FC } from 'react';
+import { Header, Footer, Main, Sidebar, Nav } from 'layout';
 import { IProps } from './interface';
-import styles from './styles.module.scss';
 
 const Layout: FC<IProps> = ({ children }) => (
-  <div className={styles.layout}>
+  <div>
     <Header />
     <Sidebar>
       <Nav />

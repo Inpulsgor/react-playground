@@ -1,5 +1,5 @@
 import { SerializedError } from '@reduxjs/toolkit';
-import { LoadingStatus } from 'src/types/enum';
+import { LoadingStatus } from 'types/enum';
 export interface AuthState {
   loading: LoadingStatus;
   accessToken: string | null;
