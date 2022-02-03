@@ -1,11 +1,15 @@
-import { FC } from 'react';
-import { Container } from '..';
-import { IProps } from './interface';
+import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Container, Box } from '@mui/material';
 
-const Main: FC<IProps> = ({ children, ...props }) => (
-  <main {...props}>
+export type MainProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const Main: FC<MainProps> = ({ children }) => (
+  <Box component="main">
     <Container>{children}</Container>
-  </main>
+  </Box>
 );
 
 export default Main;

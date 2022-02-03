@@ -19,10 +19,14 @@
       "description": ""
     }
   },
-  "components": {
+  "layout": {
     "header": {},
-    "footer": {}
+    "footer": {
+      "project": "React-playground",
+      "rights": "All Rights Reserved"
+    }
   },
+  "components": {},
   "pages": {
     "home": {},
     "metamask": {},
