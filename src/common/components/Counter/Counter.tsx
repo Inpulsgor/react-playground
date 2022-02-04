@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import { IProps, IState } from './interface';
+export interface IProps {
+  initialCount: number;
+}
+export interface IState {
+  count: number;
+}
 
 class Counter extends Component<IProps, IState> {
   static defaultProps = {
@@ -10,15 +15,15 @@ class Counter extends Component<IProps, IState> {
     count: this.props.initialCount,
   };
 
-  handleIncrement = () => {
+  handleIncrement = (): void => {
     this.setState(prevState => ({ count: prevState.count + 1 }));
   };
 
-  handleDecrement = () => {
+  handleDecrement = (): void => {
     this.setState(prevState => ({ count: prevState.count - 1 }));
   };
 
-  render() {
+  render(): JSX.Element {
     const { count } = this.state;
 
     return (

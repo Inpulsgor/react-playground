@@ -1,15 +1,20 @@
-import { Component } from 'react';
-import { IProps, IState } from './interface';
+import { Component, ReactNode } from 'react';
+export interface IProps {
+  children?: ReactNode;
+}
+export interface IState {
+  visible: boolean;
+}
 
 class Dropdown extends Component<IProps, IState> {
   state = {
     visible: false,
   };
 
-  handleToggle = () =>
+  handleToggle = (): void =>
     this.setState(prevState => ({ visible: !prevState.visible }));
 
-  render() {
+  render(): JSX.Element {
     const { visible } = this.state;
 
     return (
