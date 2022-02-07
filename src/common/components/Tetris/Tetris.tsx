@@ -256,7 +256,7 @@
 
 import React from 'react';
 
-const index = () => {
+const index = (): JSX.Element => {
   return <div></div>;
 };
 

@@ -1,4 +1,3 @@
-export { default as Logo } from './Logo/Logo';
 export { default as Modal } from './Modal/Modal';
 export { default as ColorPicker } from './ColorPicker/ColorPicker';
 export { default as Counter } from './Counter/Counter';

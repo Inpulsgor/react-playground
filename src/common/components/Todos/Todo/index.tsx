@@ -11,18 +11,18 @@ class Todo extends Component<IProps, IState> {
     filter: '',
   };
 
-  componentDidMount() {
+  componentDidMount(): void {
     const storageTodos = localStorageGet('todos');
 
     if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState): void {
     if (this.state.todos !== prevState.todos)
       localStorageSet('todos', this.state.todos);
   }
 
-  handleAddTodo = message => {
+  handleAddTodo = (message: string): void => {
     const todo = {
       id: shortid.generate(),
       text: message,

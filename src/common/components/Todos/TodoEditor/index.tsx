@@ -1,5 +1,11 @@
 import { ChangeEvent, Component } from 'react';
-import { IProps, IState } from './interafce';
+
+export interface IProps {
+  onAddTodo: (message: string) => void;
+}
+export interface IState {
+  message: string;
+}
 
 class TodoEditor extends Component<IProps, IState> {
   state = {
@@ -17,7 +23,7 @@ class TodoEditor extends Component<IProps, IState> {
     this.setState({ message: '' });
   };
 
-  render() {
+  render(): JSX.Element {
     const { message } = this.state;
 
     return (

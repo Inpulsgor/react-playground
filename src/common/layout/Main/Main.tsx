@@ -1,6 +1,5 @@
-import { Container } from 'common/layout';
-
 import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Container, Box } from '@mui/material';
 
 export type MainProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -8,9 +7,9 @@ export type MainProps = DetailedHTMLProps<
 >;
 
 const Main: FC<MainProps> = ({ children }) => (
-  <main>
+  <Box component="main">
     <Container>{children}</Container>
-  </main>
+  </Box>
 );
 
 export default Main;

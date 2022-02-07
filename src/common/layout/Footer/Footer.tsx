@@ -1,4 +1,6 @@
 import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 
 export type FooterProps = DetailedHTMLProps<
@@ -8,11 +10,14 @@ export type FooterProps = DetailedHTMLProps<
 
 const Footer: FC<FooterProps> = () => {
   const currentYear = format(new Date(), 'yyyy');
+  const { t } = useTranslation();
 
   return (
-    <footer>
-      <span>React-playground - {currentYear} All Rights Reserved</span>
-    </footer>
+    <Box component="footer">
+      <Box component="span">
+        {t('layout.footer.project')} - {currentYear} All Rights Reserved
+      </Box>
+    </Box>
   );
 };
 
