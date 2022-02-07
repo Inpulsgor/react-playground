@@ -1,13 +1,10 @@
-import { FC } from 'react';
-import { Logo } from 'common/components';
-import CoffeeLogo from 'assets/icons/coffee.svg';
-import { IProps } from './interface';
+import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
 
-const Header: FC<IProps> = ({ children, ...props }) => (
-  <header {...props}>
-    <Logo logo={CoffeeLogo} />
-    {children}
-  </header>
-);
+export type HeaderProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const Header: FC<HeaderProps> = ({ children }) => <header>{children}</header>;
 
 export default Header;

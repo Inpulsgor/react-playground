@@ -1,12 +1,16 @@
-import { FC } from 'react';
+import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
 import { format } from 'date-fns';
-import { FooterProps } from './interface';
 
-const Footer: FC<FooterProps> = ({ ...props }) => {
+export type FooterProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const Footer: FC<FooterProps> = () => {
   const currentYear = format(new Date(), 'yyyy');
 
   return (
-    <footer {...props}>
+    <footer>
       <span>React-playground - {currentYear} All Rights Reserved</span>
     </footer>
   );

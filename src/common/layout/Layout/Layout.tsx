@@ -1,16 +1,18 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Header, Footer, Main, Sidebar, Nav } from 'common/layout';
-import { IProps } from './interface';
+export interface LayoutProps {
+  children?: ReactNode;
+}
 
-const Layout: FC<IProps> = ({ children }) => (
-  <div>
+const Layout: FC<LayoutProps> = ({ children }) => (
+  <>
     <Header />
     <Sidebar>
       <Nav />
     </Sidebar>
     <Main>{children}</Main>
     <Footer />
-  </div>
+  </>
 );
 
 export default Layout;

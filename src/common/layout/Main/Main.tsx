@@ -1,9 +1,14 @@
-import { FC } from 'react';
-import { Container } from '..';
-import { IProps } from './interface';
+import { Container } from 'common/layout';
 
-const Main: FC<IProps> = ({ children, ...props }) => (
-  <main {...props}>
+import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
+
+export type MainProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const Main: FC<MainProps> = ({ children }) => (
+  <main>
     <Container>{children}</Container>
   </main>
 );

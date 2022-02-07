@@ -1,6 +1,9 @@
-import { FC } from 'react';
-import { IProps } from './interface';
+import { FC, ReactNode } from 'react';
 
-const Container: FC<IProps> = ({ children }) => <div>{children}</div>;
+export interface ContainerProps {
+  children?: ReactNode;
+}
+
+const Container: FC<ContainerProps> = ({ children }) => <div>{children}</div>;
 
 export default Container;
