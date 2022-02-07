@@ -5,7 +5,7 @@ import { Layout } from 'common/layout';
 const Home: FC = () => {
   const { t } = useTranslation();
 
-  return <Layout>{t('home')}</Layout>;
+  return <Layout>{t('pages.home.title')}</Layout>;
 };
 
 export default Home;

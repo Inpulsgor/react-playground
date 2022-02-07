@@ -1,6 +1,4 @@
 {
-  "home": "Home Page",
-  "user": "User Page",
   "meta": {
     "home": {
       "title": "Homepage | Playground",
@@ -28,7 +26,9 @@
   },
   "components": {},
   "pages": {
-    "home": {},
+    "home": {
+      "title": "Welcome on Home Page"
+    },
     "metamask": {},
     "marketplace": {},
     "profile": {},

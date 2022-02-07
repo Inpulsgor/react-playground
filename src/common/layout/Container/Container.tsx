@@ -1,10 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { Container as ContainerWrapper } from '@mui/material';
-export interface IProps {
+export interface ContainerProps {
   children?: ReactNode;
 }
 
-const Container: FC<IProps> = ({ children }) => (
+const Container: FC<ContainerProps> = ({ children }) => (
   <ContainerWrapper maxWidth="md">{children}</ContainerWrapper>
 );
 
