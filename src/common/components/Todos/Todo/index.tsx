@@ -1,11 +1,24 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import shortid from 'shortid';
-import { TodoList, TodoEditor, TodoFilter } from '../..';
-import { IProps, IState } from './interface';
+import { TodoList, TodoEditor, TodoFilter } from 'common/components';
 import { localStorageSet, localStorageGet } from 'common/utils/localStorage';
 import initialTodos from './todos.json';
+export interface TodoProps {
+  children?: ReactNode;
+}
 
-class Todo extends Component<IProps, IState> {
+export interface TodoState {
+  todos: Array<TodoItem>;
+  filter: string;
+}
+
+export type TodoItem = {
+  id: string;
+  text: string;
+  completed: boolean;
+};
+
+class Todo extends Component<TodoProps, TodoState> {
   state = {
     todos: initialTodos,
     filter: '',
@@ -38,13 +51,13 @@ class Todo extends Component<IProps, IState> {
     this.setState({ filter: currentTarget.value });
   };
 
-  handleDelete = (ID: string) => {
+  handleDelete = (ID: string): void => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== ID),
     }));
   };
 
-  toggleComplete = todoID => {
+  toggleComplete = (todoID: string): void => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => {
         if (todo.id === todoID) {
@@ -59,7 +72,7 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
-  getFilteredTodos = () => {
+  getFilteredTodos = (): Array<TodoItem> => {
     const { todos, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
 
@@ -68,7 +81,7 @@ class Todo extends Component<IProps, IState> {
     );
   };
 
-  render() {
+  render(): JSX.Element {
     const { todos, filter } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
     const visibleTodos = this.getFilteredTodos();

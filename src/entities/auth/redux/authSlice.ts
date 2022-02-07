@@ -82,7 +82,7 @@ export const authSlice = createSlice({
     reset: () => initialState,
   },
   extraReducers: builder => {
-    builder.addCase(login.pending, (state, action) => {
+    builder.addCase(login.pending, state => {
       state.loading = LoadingStatus.LOADING;
     });
     builder.addCase(login.fulfilled, (state, action) => {
@@ -101,7 +101,7 @@ export const authSlice = createSlice({
     builder.addCase(logout.rejected, (state, action) => {
       state = { ...initialState, error: action.payload };
     });
-    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
+    builder.addCase(getCurrentUser.fulfilled, state => {
       state = { ...initialState };
     });
   },
