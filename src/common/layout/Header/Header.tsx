@@ -1,5 +1,6 @@
 import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
 import { Box } from '@mui/material';
+
 export type HeaderProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement

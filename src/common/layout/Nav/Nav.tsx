@@ -1,7 +1,10 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import NavItem from './NavItem/NavItem';
 import routes from 'pages/routes';
-import { NavProps } from './interface';
+
+export interface NavProps {
+  children?: ReactNode;
+}
 
 const Nav: FC<NavProps> = () => (
   <nav>

@@ -1,5 +1,5 @@
-export const browser = () => {
-  const test = regexp => regexp.test(window.navigator.userAgent);
+export const browser = (): string => {
+  const test = (regexp: RegExp) => regexp.test(window.navigator.userAgent);
 
   switch (true) {
     case test(/edg/i):
