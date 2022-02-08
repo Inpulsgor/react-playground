@@ -1,17 +1,13 @@
 import { FC } from 'react';
-// import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 export interface NavLinkProps {
-  path: string;
-  label: string;
+  route: string;
 }
 
-const NavLink: FC<NavLinkProps> = ({ path, label }) => {
-  // const { pathname } = useLocation();
-
+const NavLink: FC<NavLinkProps> = ({ route }) => {
   return (
-    <Link key={label} to={path}>
-      {label}
+    <Link key={route} to={route}>
+      {route}
     </Link>
   );
 };

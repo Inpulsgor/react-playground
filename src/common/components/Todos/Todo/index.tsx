@@ -1,7 +1,7 @@
 import { Component, ReactNode } from 'react';
 import shortid from 'shortid';
 import { TodoList, TodoEditor, TodoFilter } from 'common/components';
-import { localStorageSet, localStorageGet } from 'common/utils/localStorage';
+import { localStorageSet, localStorageGet } from 'common/utils/storage';
 import initialTodos from './todos.json';
 export interface TodoProps {
   children?: ReactNode;
@@ -27,7 +27,7 @@ class Todo extends Component<TodoProps, TodoState> {
   componentDidMount(): void {
     const storageTodos = localStorageGet('todos');
 
-    if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
+    // if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
   componentDidUpdate(prevProps, prevState): void {

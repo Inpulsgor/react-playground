@@ -3,9 +3,15 @@ export enum ButtonTypes {
   toggle = 'toggle',
 }
 
-export enum LoadingStatus {
-  IDLE = 'idle',
-  LOADING = 'loading',
+export enum LOADING_STATUS {
+  IDLE = 'IDLE',
+  LOADING = 'LOADING',
+}
+
+export enum REQUEST_STATUS {
+  LOADING = 'LOADING',
+  SUCCESS = 'SUCCESS',
+  FAILED = 'FAILED',
 }
 
 export enum ROUTES {

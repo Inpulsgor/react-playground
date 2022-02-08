@@ -3,9 +3,4 @@ export interface FailurePayload {
   message: string;
 }
 
-export interface MetamaskSignResponse {
-  nonce: string;
-  signature: string;
-}
-
-export type ShowError = (message?: any) => void;
+export type ShowError = (message?: unknown) => void;

@@ -7,7 +7,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from 'common/styles/theme';
 import store from './redux/store';
 import App from './App';
-import 'modern-normalize/modern-normalize.css';
 
 ReactDOM.render(
   <StrictMode>

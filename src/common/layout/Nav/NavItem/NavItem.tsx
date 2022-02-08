@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import NavLink from '../NavLink/NavLink';
-import { RouteTypes } from 'types/routes.interface';
+import { ROUTES } from 'types/enum';
 export interface NavItemProps {
-  route: RouteTypes;
+  route: ROUTES;
 }
 
 const NavItem: FC<NavItemProps> = ({ route }) => {
   return (
     <li>
-      <NavLink {...route} />
+      <NavLink route={route} />
     </li>
   );
 };

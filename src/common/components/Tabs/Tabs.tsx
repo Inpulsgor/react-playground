@@ -1,5 +1,5 @@
 import { PureComponent } from 'react';
-import tabs from 'common/utils/tabs.json';
+import tabs from 'common/static/tabs.json';
 
 export interface IProps {
   label?: string;
