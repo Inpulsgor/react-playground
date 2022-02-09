@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AuthState } from 'models/auth';
 import { LOADING_STATUS, REQUEST_STATUS } from 'types/enum';
-import { login, logout, getCurrentUser } from 'redux/auth/authOperations';
+import { login } from 'redux/auth/authOperations';
 
 const initialState: AuthState = {
   loading: LOADING_STATUS.IDLE,
-  accessToken: null,
-  currentUser: null,
+  token: null,
+  user: null,
   error: null,
   status: null,
 };
@@ -16,7 +16,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     updateAccessToken: (state, action) => {
-      state.accessToken = action.payload;
+      state.token = action.payload;
     },
     reset: () => initialState,
   },
@@ -26,7 +26,7 @@ export const authSlice = createSlice({
       state.status = REQUEST_STATUS.LOADING;
     });
     builder.addCase(login.fulfilled, (state, action) => {
-      state.currentUser = action.payload;
+      state.user = action.payload;
       state.loading = LOADING_STATUS.IDLE;
       state.status = REQUEST_STATUS.SUCCESS;
     });
@@ -36,19 +36,6 @@ export const authSlice = createSlice({
         error: action.payload,
         status: REQUEST_STATUS.FAILED,
       };
-    });
-    builder.addCase(logout.pending, state => {
-      state.loading = LOADING_STATUS.LOADING;
-      state.status = REQUEST_STATUS.LOADING;
-    });
-    builder.addCase(logout.fulfilled, state => {
-      state = { ...initialState };
-    });
-    builder.addCase(logout.rejected, (state, action) => {
-      state = { ...initialState, error: action.payload };
-    });
-    builder.addCase(getCurrentUser.fulfilled, state => {
-      state = { ...initialState };
     });
   },
 });

@@ -13,4 +13,4 @@ export type RootState = ReturnType<typeof rootReducer>;
 
 const persistor = persistStore(store);
 
-export default { store, persistor };
+export { store, persistor };

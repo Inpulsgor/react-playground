@@ -4,16 +4,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
+import { store, persistor } from './redux/store';
 import theme from 'common/styles/theme';
-import store from './redux/store';
 import App from './App';
+import 'common/api/firebase';
 
 ReactDOM.render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Provider store={store.store}>
-          <PersistGate loading={null} persistor={store.persistor}>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter>
               <App />
             </BrowserRouter>

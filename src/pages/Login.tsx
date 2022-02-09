@@ -32,8 +32,7 @@ const Login: FC = () => {
               value={value}
               onChange={onChange}
               label="login"
-              variant="filled"
-              color="primary"
+              variant="outlined"
             />
           )}
         />

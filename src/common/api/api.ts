@@ -1,19 +1,20 @@
-import { AxiosPromise } from 'axios';
-import instance from './instance';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  UserCredential,
+} from 'firebase/auth';
+import { Credentials } from './types';
 
-// AUTH REQUESTS
-const LOGIN = (credentials): AxiosPromise =>
-  instance.post(`/login`, credentials);
-const LOGOUT = (credentials): AxiosPromise =>
-  instance.post(`/logout`, credentials);
-const RESET = (credentials): AxiosPromise =>
-  instance.post(`/reset`, credentials);
-const GET_USER = (credentials): AxiosPromise =>
-  instance.get(`/user`, credentials);
+const auth = getAuth();
+
+const SIGN_IN = ({ email, password }: Credentials): Promise<UserCredential> =>
+  createUserWithEmailAndPassword(auth, email, password);
+
+const LOGIN = ({ email, password }: Credentials): Promise<UserCredential> =>
+  signInWithEmailAndPassword(auth, email, password);
 
 export default {
+  SIGN_IN,
   LOGIN,
-  LOGOUT,
-  RESET,
-  GET_USER,
 };

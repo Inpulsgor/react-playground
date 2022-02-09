@@ -1,21 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from 'common/api/api';
+import { Credentials } from 'common/api/types';
 
-const login = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
-  try {
-    const response = await api.LOGIN(credentials);
-
-    return response.data;
-  } catch (error) {
-    thunkAPI.rejectWithValue({ error: error });
-  }
-});
-
-const logout = createAsyncThunk(
-  'auth/logout',
-  async (credentials, thunkAPI) => {
+const login = createAsyncThunk(
+  'auth/login',
+  async (credentials: Credentials, thunkAPI) => {
     try {
-      const response = await api.LOGOUT(credentials);
+      const response = await api.LOGIN(credentials);
 
       return response;
     } catch (error) {
@@ -24,32 +15,4 @@ const logout = createAsyncThunk(
   },
 );
 
-const getCurrentUser = createAsyncThunk(
-  'auth/current',
-  async (credentials, thunkAPI) => {
-    // const state = thunkAPI.getState() as AppStore;
-
-    try {
-      const response = await api.GET_USER(credentials);
-
-      return { currentUser: response.data };
-    } catch (error) {
-      thunkAPI.rejectWithValue({ error: error });
-    }
-  },
-);
-
-const reset = createAsyncThunk(
-  'auth/resetPassword',
-  async (credentials, thunkAPI) => {
-    try {
-      const response = await api.RESET(credentials);
-
-      return response;
-    } catch (error) {
-      thunkAPI.rejectWithValue({ error: error });
-    }
-  },
-);
-
-export { login, logout, reset, getCurrentUser };
+export { login };
