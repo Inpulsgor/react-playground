@@ -6,27 +6,32 @@ const routes = [
     path: ROUTES.login,
     label: 'LoginPage',
     component: lazy(
-      () => import('./Login' /* webpackChunkName: "LoginPage" */),
+      () => import('./pages/Login' /* webpackChunkName: "LoginPage" */),
     ),
   },
   {
     path: ROUTES.registration,
     label: 'RegistrationPage',
     component: lazy(
-      () => import('./Registration' /* webpackChunkName: "RegistrationPage" */),
+      () =>
+        import(
+          './pages/Registration' /* webpackChunkName: "RegistrationPage" */
+        ),
     ),
   },
   {
     path: ROUTES.recovery,
     label: 'RecoveryPage',
     component: lazy(
-      () => import('./Recovery' /* webpackChunkName: "RecoveryPage" */),
+      () => import('./pages/Recovery' /* webpackChunkName: "RecoveryPage" */),
     ),
   },
   {
     path: ROUTES.home,
     label: 'HomePage',
-    component: lazy(() => import('./Home' /* webpackChunkName: "HomePage" */)),
+    component: lazy(
+      () => import('./pages/Home' /* webpackChunkName: "HomePage" */),
+    ),
     sub: [],
     exact: true,
     private: true,
@@ -36,14 +41,15 @@ const routes = [
     path: ROUTES.playground,
     label: 'PlaygroundPage',
     component: lazy(
-      () => import('./Playground' /* webpackChunkName: "PlaygroundPage" */),
+      () =>
+        import('./pages/Playground' /* webpackChunkName: "PlaygroundPage" */),
     ),
   },
   {
     path: ROUTES.notFound,
     label: 'NotFoundPage',
     component: lazy(
-      () => import('./NotFound' /* webpackChunkName: "NotFoundPage" */),
+      () => import('./pages/NotFound' /* webpackChunkName: "NotFoundPage" */),
     ),
   },
 ];
