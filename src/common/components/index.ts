@@ -1,3 +1,4 @@
+export { default as Loader } from './Loader/Loader';
 export { default as Modal } from './Modal/Modal';
 export { default as ColorPicker } from './ColorPicker/ColorPicker';
 export { default as Counter } from './Counter/Counter';
@@ -10,4 +11,3 @@ export { default as TodoFilter } from './Todos/TodoFilter';
 export { default as Form } from './Form/Form';
 export { default as Button } from './Button/Button';
 export { default as Tabs } from './Tabs/Tabs';
-export { default as Tetris } from './Tetris/Tetris';

@@ -7,7 +7,8 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { store, persistor } from './redux/store';
 import theme from 'common/styles/theme';
 import App from './App';
-import 'common/api/firebase';
+import reportWebVitals from './reportWebVitals';
+// import 'common/api/firebase';
 
 ReactDOM.render(
   <StrictMode>
@@ -25,3 +26,8 @@ ReactDOM.render(
   </StrictMode>,
   document.getElementById('root'),
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

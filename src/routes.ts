@@ -1,57 +1,60 @@
 import { lazy } from 'react';
 import { ROUTES } from 'types/enum';
 
-const routes = [
+export const LoginPage = lazy(
+  () => import('pages/Login' /* webpackChunkName: "LoginPage" */),
+);
+
+export const RegistrationPage = lazy(
+  () => import('pages/Registration' /* webpackChunkName: "RegistrationPage" */),
+);
+
+export const RecoveryPage = lazy(
+  () => import('pages/Recovery' /* webpackChunkName: "RecoveryPage" */),
+);
+
+export const HomePage = lazy(
+  () => import('pages/Home' /* webpackChunkName: "HomePage" */),
+);
+
+export const NotFoundPage = lazy(
+  () => import('pages/NotFound' /* webpackChunkName: "NotFoundPage" */),
+);
+
+export const routes = [
   {
-    path: ROUTES.login,
-    label: 'LoginPage',
-    component: lazy(
-      () => import('./pages/Login' /* webpackChunkName: "LoginPage" */),
-    ),
-  },
-  {
-    path: ROUTES.registration,
-    label: 'RegistrationPage',
-    component: lazy(
-      () =>
-        import(
-          './pages/Registration' /* webpackChunkName: "RegistrationPage" */
-        ),
-    ),
-  },
-  {
-    path: ROUTES.recovery,
-    label: 'RecoveryPage',
-    component: lazy(
-      () => import('./pages/Recovery' /* webpackChunkName: "RecoveryPage" */),
-    ),
-  },
-  {
-    path: ROUTES.home,
+    path: ROUTES.HOME,
     label: 'HomePage',
-    component: lazy(
-      () => import('./pages/Home' /* webpackChunkName: "HomePage" */),
-    ),
-    sub: [],
-    exact: true,
+    component: HomePage,
     private: true,
     restricted: false,
   },
   {
-    path: ROUTES.playground,
-    label: 'PlaygroundPage',
-    component: lazy(
-      () =>
-        import('./pages/Playground' /* webpackChunkName: "PlaygroundPage" */),
-    ),
+    path: ROUTES.LOGIN,
+    label: 'LoginPage',
+    component: LoginPage,
+    private: false,
+    restricted: true,
   },
   {
-    path: ROUTES.notFound,
+    path: ROUTES.REGISTRATION,
+    label: 'RegistrationPage',
+    component: RegistrationPage,
+    private: false,
+    restricted: true,
+  },
+  {
+    path: ROUTES.RECOVERY,
+    label: 'RecoveryPage',
+    component: RecoveryPage,
+    private: false,
+    restricted: true,
+  },
+  {
+    path: ROUTES.NOT_FOUND,
     label: 'NotFoundPage',
-    component: lazy(
-      () => import('./pages/NotFound' /* webpackChunkName: "NotFoundPage" */),
-    ),
+    component: NotFoundPage,
+    private: false,
+    restricted: false,
   },
 ];
-
-export default routes;

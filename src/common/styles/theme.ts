@@ -1,74 +1,63 @@
 // eslint-disable-next-line import/named
 import { createTheme, responsiveFontSizes, Theme } from '@mui/material';
-import { grey } from '@mui/material/colors';
 
 let theme: Theme = createTheme({
   palette: {
     primary: {
-      main: '#054748',
+      main: '#141414',
       contrastText: '#FFF',
     },
     secondary: {
-      main: '#94C11A',
+      main: '#000',
       contrastText: '#FFF',
     },
     success: {
-      main: '#F2F7F5 ',
-      contrastText: '#006531',
+      main: '#191819',
+      contrastText: '#A2A2A2',
     },
     info: {
       main: '#FFF',
       contrastText: '#002E36',
     },
     custom: {
-      green: '#006531', // NEW UI
-      lima: '#94C11A', // NEW UI
-      white: '#FFFFFF', // NEW UI
-      platinum: '#E3E3E3', // NEW UI
-      deep: '#054748', // NEW UI
-      sacramento: '#002E36', // NEW UI
-      granny: '#80979B', // NEW UI
-      cultured: '#F2F7F5', // NEW UI
-      alabaster: grey[100], // #FAFAFA // NEW UI
-      darkGray: grey[600], // "#747474" // NEW UI
-      philippineGray: '#5B5B5B', // NEW UI
-      light: grey[100], // "#F7F7F7"
-      lightGray: '#EAEAEA',
-      gray: '#D3D3D3',
-      disabled: '#C6C6C6',
-      silver: '#BABABA',
-      black: '#000000',
+      white: '#FFF',
+      black: '#000',
+      mercury: '#E4E4E4',
+    },
+    background: {
+      default: '#141414',
+    },
+    text: {
+      primary: '#FFF',
+      secondary: '#A2A2A2',
     },
   },
   typography: {
     fontFamily: "'Poppins', sans-serif",
-    fontSize: 14,
+    fontSize: 10,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 700,
+    fontWeightBold: 600,
     h2: {
-      fontFamily: 'Trois Mille Black',
-      fontSize: '32px',
-      fontWeight: 900,
-      textTransform: 'uppercase',
+      fontSize: '40px',
+      fontWeight: 500,
     },
     h3: {
-      fontFamily: 'Trois Mille Black',
-      fontSize: '18px',
-      fontWeight: 900,
-      textTransform: 'uppercase',
+      fontSize: '20px',
+      fontWeight: 500,
+      textTransform: 'none',
     },
     h4: {
-      fontSize: '18px',
-      fontWeight: 700,
+      fontSize: '16px',
+      fontWeight: 500,
     },
     body1: {
-      fontSize: '14px',
-      lineHeight: '24px',
+      fontSize: '16px',
+      lineHeight: '16px',
     },
     body2: {
-      fontSize: '13px',
-      lineHeight: '17.7px',
+      fontSize: '14px',
+      lineHeight: '22.4px',
     },
   },
   breakpoints: {
@@ -77,56 +66,32 @@ let theme: Theme = createTheme({
       sm: 576,
       md: 768,
       lg: 992,
-      xl: 1440,
+      xl: 1200,
     },
   },
   components: {
-    MuiCheckbox: {
+    MuiTooltip: {
       styleOverrides: {
-        colorSecondary: {
-          color: '#E3E3E3',
+        tooltip: {
+          backgroundColor: '#E4E4E4',
+          color: '#141414',
+          padding: '16px',
+          width: '100%',
+          maxWidth: '330px',
+        },
+        tooltipPlacementTop: {
+          backgroundColor: '#E4E4E4',
+        },
+        arrow: {
+          color: '#E4E4E4',
         },
       },
     },
-    MuiDivider: {
+    MuiAccordionSummary: {
       styleOverrides: {
         root: {
-          marginTop: '10px',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          margin: '0',
-          padding: '0',
-          minWidth: 'fit-content',
-          textTransform: 'initial',
-        },
-      },
-    },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          width: '100vw',
-          padding: '0',
-        },
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              border: 'none',
-            },
-            '&:hover fieldset': {
-              border: 'none',
-            },
-            '&.Mui-focused fieldset': {
-              border: 'none',
-            },
-          },
+          paddingLeft: '24px',
+          paddingRight: '24px',
         },
       },
     },

@@ -30,7 +30,7 @@ class Todo extends Component<TodoProps, TodoState> {
     // if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
-  componentDidUpdate(prevProps, prevState): void {
+  componentDidUpdate(prevProps: any, prevState: any): void {
     if (this.state.todos !== prevState.todos)
       localStorageSet('todos', this.state.todos);
   }
@@ -47,7 +47,7 @@ class Todo extends Component<TodoProps, TodoState> {
     }));
   };
 
-  handleChange = ({ currentTarget }) => {
+  handleChange = ({ currentTarget }: any) => {
     this.setState({ filter: currentTarget.value });
   };
 
