@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState } from 'models/auth';
 import { LOADING_STATUS, REQUEST_STATUS } from 'types/enum';
 import { login } from 'redux/auth/authOperations';
@@ -7,8 +7,8 @@ const initialState: AuthState = {
   loading: LOADING_STATUS.IDLE,
   token: null,
   user: null,
-  error: null,
   status: null,
+  error: null,
 };
 
 export const authSlice = createSlice({
@@ -25,7 +25,7 @@ export const authSlice = createSlice({
       state.loading = LOADING_STATUS.LOADING;
       state.status = REQUEST_STATUS.LOADING;
     });
-    builder.addCase(login.fulfilled, state => {
+    builder.addCase(login.fulfilled, (state, action: PayloadAction) => {
       // state.user = action.payload;
       state.loading = LOADING_STATUS.IDLE;
       state.status = REQUEST_STATUS.SUCCESS;

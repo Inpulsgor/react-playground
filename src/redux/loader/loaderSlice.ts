@@ -7,7 +7,7 @@ const initialState: LoaderState = {
 };
 
 export const loaderSlice = createSlice({
-  name: 'auth',
+  name: 'loader',
   initialState,
   reducers: {
     loaderActive: state => {
