@@ -1,7 +1,11 @@
 import { Component, ReactNode } from 'react';
 import shortid from 'shortid';
-import { TodoList, TodoEditor, TodoFilter } from 'common/components';
-import { localStorageSet, localStorageGet } from 'common/utils/storage';
+import {
+  TodoList,
+  TodoEditor,
+  // TodoFilter
+} from 'common/components';
+// import { localStorageSet, localStorageGet } from 'common/utils/storage';
 import initialTodos from './todos.json';
 export interface TodoProps {
   children?: ReactNode;
@@ -25,15 +29,14 @@ class Todo extends Component<TodoProps, TodoState> {
   };
 
   componentDidMount(): void {
-    const storageTodos = localStorageGet('todos');
-
+    // const storageTodos = localStorageGet('todos');
     // if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
-  componentDidUpdate(prevProps: any, prevState: any): void {
-    if (this.state.todos !== prevState.todos)
-      localStorageSet('todos', this.state.todos);
-  }
+  // componentDidUpdate(prevProps, prevState): void {
+  //   if (this.state.todos !== prevState.todos)
+  //     localStorageSet('todos', this.state.todos);
+  // }
 
   handleAddTodo = (message: string): void => {
     const todo = {
@@ -47,9 +50,9 @@ class Todo extends Component<TodoProps, TodoState> {
     }));
   };
 
-  handleChange = ({ currentTarget }: any) => {
-    this.setState({ filter: currentTarget.value });
-  };
+  // handleChange = ({ currentTarget }) => {
+  //   this.setState({ filter: currentTarget.value });
+  // };
 
   handleDelete = (ID: string): void => {
     this.setState(prevState => ({
@@ -82,7 +85,7 @@ class Todo extends Component<TodoProps, TodoState> {
   };
 
   render(): JSX.Element {
-    const { todos, filter } = this.state;
+    const { todos } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
     const visibleTodos = this.getFilteredTodos();
 
@@ -91,7 +94,7 @@ class Todo extends Component<TodoProps, TodoState> {
         <span>Total: {todos.length}</span>
         <span>Completed: {completedTodos.length}</span>
 
-        <TodoFilter inputValue={filter} handleChange={this.handleChange} />
+        {/* <TodoFilter inputValue={filter} handleChange={this.handleChange} /> */}
         <TodoEditor onAddTodo={this.handleAddTodo} />
 
         {todos.length > 0 && (

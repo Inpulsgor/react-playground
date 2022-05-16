@@ -25,7 +25,7 @@ export const authSlice = createSlice({
       state.loading = LOADING_STATUS.LOADING;
       state.status = REQUEST_STATUS.LOADING;
     });
-    builder.addCase(login.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, state => {
       // state.user = action.payload;
       state.loading = LOADING_STATUS.IDLE;
       state.status = REQUEST_STATUS.SUCCESS;
