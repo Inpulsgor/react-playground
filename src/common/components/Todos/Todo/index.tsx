@@ -1,28 +1,44 @@
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import shortid from 'shortid';
-import { TodoList, TodoEditor, TodoFilter } from '../..';
-import { IProps, IState } from './interface';
-import { localStorageSet, localStorageGet } from 'common/utils/localStorage';
+import {
+  TodoList,
+  TodoEditor,
+  // TodoFilter
+} from 'common/components';
+// import { localStorageSet, localStorageGet } from 'common/utils/storage';
 import initialTodos from './todos.json';
+export interface TodoProps {
+  children?: ReactNode;
+}
 
-class Todo extends Component<IProps, IState> {
+export interface TodoState {
+  todos: Array<TodoItem>;
+  filter: string;
+}
+
+export type TodoItem = {
+  id: string;
+  text: string;
+  completed: boolean;
+};
+
+class Todo extends Component<TodoProps, TodoState> {
   state = {
     todos: initialTodos,
     filter: '',
   };
 
-  componentDidMount() {
-    const storageTodos = localStorageGet('todos');
-
-    if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
+  componentDidMount(): void {
+    // const storageTodos = localStorageGet('todos');
+    // if (storageTodos?.length > 0) this.setState({ todos: storageTodos });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.todos !== prevState.todos)
-      localStorageSet('todos', this.state.todos);
-  }
+  // componentDidUpdate(prevProps, prevState): void {
+  //   if (this.state.todos !== prevState.todos)
+  //     localStorageSet('todos', this.state.todos);
+  // }
 
-  handleAddTodo = message => {
+  handleAddTodo = (message: string): void => {
     const todo = {
       id: shortid.generate(),
       text: message,
@@ -34,17 +50,17 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
-  handleChange = ({ currentTarget }) => {
-    this.setState({ filter: currentTarget.value });
-  };
+  // handleChange = ({ currentTarget }) => {
+  //   this.setState({ filter: currentTarget.value });
+  // };
 
-  handleDelete = (ID: string) => {
+  handleDelete = (ID: string): void => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== ID),
     }));
   };
 
-  toggleComplete = todoID => {
+  toggleComplete = (todoID: string): void => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => {
         if (todo.id === todoID) {
@@ -59,7 +75,7 @@ class Todo extends Component<IProps, IState> {
     }));
   };
 
-  getFilteredTodos = () => {
+  getFilteredTodos = (): Array<TodoItem> => {
     const { todos, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
 
@@ -68,8 +84,8 @@ class Todo extends Component<IProps, IState> {
     );
   };
 
-  render() {
-    const { todos, filter } = this.state;
+  render(): JSX.Element {
+    const { todos } = this.state;
     const completedTodos = todos.filter(todo => todo.completed);
     const visibleTodos = this.getFilteredTodos();
 
@@ -78,7 +94,7 @@ class Todo extends Component<IProps, IState> {
         <span>Total: {todos.length}</span>
         <span>Completed: {completedTodos.length}</span>
 
-        <TodoFilter inputValue={filter} handleChange={this.handleChange} />
+        {/* <TodoFilter inputValue={filter} handleChange={this.handleChange} /> */}
         <TodoEditor onAddTodo={this.handleAddTodo} />
 
         {todos.length > 0 && (

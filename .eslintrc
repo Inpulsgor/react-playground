@@ -7,8 +7,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "requireConfigFile": false,
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -29,6 +28,8 @@
     "no-unused-vars": 0,
     "react-hooks/exhaustive-deps": "warn",
     "no-empty-interface": 0,
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
     "prettier/prettier": [
       "error",
       {

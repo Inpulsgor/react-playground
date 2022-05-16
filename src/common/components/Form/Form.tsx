@@ -36,7 +36,7 @@ class Form extends Component<IProps, IState> {
 
   formReset = (): void => this.setState({ name: '', email: '' });
 
-  render() {
+  render(): JSX.Element {
     const { name, email, level, accepted } = this.state;
 
     return (

@@ -1,6 +1,14 @@
 import { PureComponent } from 'react';
-import { IProps, IState } from './interface';
-import tabs from 'common/utils/tabs.json';
+import tabs from 'common/static/tabs.json';
+
+export interface IProps {
+  label?: string;
+  content?: string;
+}
+
+export interface IState {
+  activeTabIndex: number;
+}
 
 class Tabs extends PureComponent<IProps, IState> {
   state = {
@@ -16,7 +24,7 @@ class Tabs extends PureComponent<IProps, IState> {
     this.setState({ activeTabIndex: index });
   };
 
-  render() {
+  render(): JSX.Element {
     const { activeTabIndex } = this.state;
     const activeTab = tabs[activeTabIndex];
 

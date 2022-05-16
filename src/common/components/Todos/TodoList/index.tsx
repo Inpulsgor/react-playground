@@ -1,8 +1,23 @@
 import { FC } from 'react';
 import { TodoItem } from '../..';
-import { IProps } from './interface';
 
-const TodoList: FC<IProps> = ({ todos, onDeleteTodo, onToggleComplete }) => {
+type Todo = {
+  id: string;
+  text: string;
+  completed: boolean;
+};
+
+export interface TodoListProps {
+  todos: Array<Todo>;
+  onDeleteTodo: (id: string) => void;
+  onToggleComplete: (id: string) => void;
+}
+
+const TodoList: FC<TodoListProps> = ({
+  todos,
+  onDeleteTodo,
+  onToggleComplete,
+}) => {
   return (
     <ul>
       {todos &&

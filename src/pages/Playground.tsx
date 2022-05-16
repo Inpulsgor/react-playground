@@ -14,7 +14,7 @@ import { COLORS } from 'common/utils/colors';
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleSubmitForm = data => {
+  const handleSubmitForm = (data: any) => {
     console.log(data);
   };
 

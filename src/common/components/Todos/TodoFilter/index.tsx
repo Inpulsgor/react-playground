@@ -1,5 +1,8 @@
-import { FC } from 'react';
-import { IProps } from './interface';
+import { FC, ChangeEvent } from 'react';
+export interface IProps {
+  inputValue: string;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
 const TodoFilter: FC<IProps> = ({ inputValue, handleChange }) => {
   return (

@@ -1,8 +1,13 @@
-import { FC } from 'react';
-import { IProps } from './interface';
+import { FC, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { Box } from '@mui/material';
 
-const Sidebar: FC<IProps> = ({ children, ...props }) => (
-  <aside {...props}>{children}</aside>
+export type SidebarProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+const Sidebar: FC<SidebarProps> = ({ children }) => (
+  <Box component="aside">{children}</Box>
 );
 
 export default Sidebar;

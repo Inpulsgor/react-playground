@@ -1,10 +1,15 @@
-import { FC, MouseEvent, KeyboardEvent, useEffect } from 'react';
+import { FC, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalProps } from './interface';
 
 const rootModal = document.querySelector('#root-modal') as HTMLDivElement;
 
-const Modal: FC<ModalProps> = ({ toggleModal, children }) => {
+export interface ModalProps {
+  showModal: boolean;
+  toggleModal?: () => void;
+  children: ReactNode;
+}
+
+const Modal: FC<ModalProps> = ({ children }) => {
   // const handleKeyDown = (event): void => {
   //   if (event.code === 'Escape') toggleModal();
   // };
