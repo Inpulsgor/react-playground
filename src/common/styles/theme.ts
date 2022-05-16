@@ -33,7 +33,7 @@ let theme: Theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: 'Poppins, sans-serif',
     fontSize: 10,
     fontWeightRegular: 400,
     fontWeightMedium: 500,

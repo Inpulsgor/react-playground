@@ -1,10 +1,11 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState } from 'models/auth';
 import { LOADING_STATUS, REQUEST_STATUS } from 'types/enum';
 import { login } from 'redux/auth/authOperations';
 
 const initialState: AuthState = {
   loading: LOADING_STATUS.IDLE,
+  isAuthenticated: false,
   token: null,
   user: null,
   status: null,
