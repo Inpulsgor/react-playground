@@ -1,6 +1,4 @@
 import { lazy } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from 'common/hooks/useAuth';
 import { ROUTES } from 'types/enum';
 
 export const LoginPage = lazy(
@@ -60,21 +58,3 @@ export const routes = [
     restricted: false,
   },
 ];
-
-interface RouteProps {
-  children: JSX.Element;
-}
-
-export const PrivateRoute = ({ children }: RouteProps) => {
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
-  // const location = useLocation();
-
-  if (!isAuthenticated) {
-    navigate(ROUTES.LOGIN, { replace: true });
-
-    return;
-  }
-
-  return children;
-};

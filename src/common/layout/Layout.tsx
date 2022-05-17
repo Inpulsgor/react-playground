@@ -1,12 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 import { SxProps } from '@mui/system';
 import { useTheme, useMediaQuery } from '@mui/material';
 import { Wrapper, Header, Footer, Main, Sidebar } from 'common/layout';
-
-interface LayoutProps {
-  children: ReactNode;
-}
-
 interface LayoutStyles {
   [key: string]: SxProps;
 }
@@ -50,10 +46,12 @@ const styles: LayoutStyles = {
     gridTemplateColumns: { xs: '1fr', md: '1fr auto auto' },
     gap: '10px 40px',
     padding: '24px',
+    bgcolor: '#7653FC',
+    color: 'custom.white',
   },
 };
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -61,7 +59,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <Wrapper style={styles.wrapper}>
       {!matches && <Header style={styles.header} />}
       {matches && <Sidebar style={styles.sidebar} />}
-      <Main style={styles.main}>{children}</Main>
+      <Main style={styles.main}>
+        <Outlet />
+      </Main>
       <Footer style={styles.footer} />
     </Wrapper>
   );

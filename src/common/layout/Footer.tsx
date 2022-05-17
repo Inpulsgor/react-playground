@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 import { SxProps } from '@mui/system';
-import { Box } from '@mui/material';
+import { Box, Link } from '@mui/material';
 
 interface FooterProps {
   children?: ReactNode;
@@ -18,6 +18,12 @@ const Footer: FC<FooterProps> = ({ style }) => {
       <Box component="span">
         {t('layout.footer.project')} - {currentYear} All Rights Reserved
       </Box>
+      <Link sx={{ color: 'custom.white' }} href="#">
+        User agreement
+      </Link>
+      <Link sx={{ color: 'custom.white' }} href="#">
+        Privacy policy
+      </Link>
     </Box>
   );
 };

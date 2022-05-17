@@ -28,8 +28,8 @@ let theme: Theme = createTheme({
       default: '#F5F6F8',
     },
     text: {
-      primary: '#FFF',
-      secondary: '#A2A2A2',
+      primary: '#3B434E',
+      secondary: '#FFF',
     },
   },
   typography: {
