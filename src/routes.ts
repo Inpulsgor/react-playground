@@ -30,7 +30,7 @@ export const routes = [
     restricted: false,
   },
   {
-    path: ROUTES.LOGIN,
+    path: ROUTES.AUTH,
     label: 'LoginPage',
     component: LoginPage,
     private: false,

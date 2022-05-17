@@ -4,11 +4,11 @@ import { createTheme, responsiveFontSizes, Theme } from '@mui/material';
 let theme: Theme = createTheme({
   palette: {
     primary: {
-      main: '#141414',
+      main: '#7653FC',
       contrastText: '#FFF',
     },
     secondary: {
-      main: '#000',
+      main: '#3B434E',
       contrastText: '#FFF',
     },
     success: {
@@ -25,15 +25,27 @@ let theme: Theme = createTheme({
       mercury: '#E4E4E4',
     },
     background: {
-      default: '#141414',
+      default: '#F5F6F8',
     },
     text: {
-      primary: '#FFF',
-      secondary: '#A2A2A2',
+      primary: '#3B434E',
+      secondary: '#FFF',
     },
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: [
+      'Noto Sans',
+      'sans-serif',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
     fontSize: 10,
     fontWeightRegular: 400,
     fontWeightMedium: 500,

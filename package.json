@@ -2,7 +2,6 @@
   "name": "react-playground",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Inpulsgor.github.io/react-playground",
   "scripts": {
     "prepare": "husky install",
     "start": "react-scripts start",

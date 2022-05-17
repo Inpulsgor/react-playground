@@ -1,6 +1,6 @@
 export enum ButtonTypes {
-  close = 'close',
-  toggle = 'toggle',
+  CLOSE = 'CLOSE',
+  TOGGLE = 'TOGGLE',
 }
 
 export enum LOADING_STATUS {
@@ -9,15 +9,16 @@ export enum LOADING_STATUS {
 }
 
 export enum REQUEST_STATUS {
-  LOADING = 'LOADING',
-  SUCCESS = 'SUCCESS',
+  IDLE = 'IDLE',
+  PENDING = 'PENDING',
+  SUCCEEDED = 'SUCCEEDED',
   FAILED = 'FAILED',
 }
 
 export enum ROUTES {
   HOME = '/',
-  LOGIN = 'login',
-  RECOVERY = 'recovery',
-  REGISTRATION = 'registration',
+  AUTH = '/auth',
+  RECOVERY = '/auth/recovery',
+  REGISTRATION = '/auth/registration',
   NOT_FOUND = '*',
 }
