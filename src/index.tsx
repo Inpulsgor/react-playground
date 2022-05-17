@@ -8,7 +8,7 @@ import { store, persistor } from './redux/store';
 import theme from 'common/styles/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import 'common/api/firebase';
+import 'common/api/firebase';
 
 const rootElement = document.getElementById('root');
 

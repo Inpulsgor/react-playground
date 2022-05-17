@@ -6,7 +6,7 @@ interface RouteProps {
   children: JSX.Element;
 }
 
-const RequireAuth = ({ children }: RouteProps) => {
+export const RequireAuth = ({ children }: RouteProps) => {
   const { isAuthenticated } = useAuth();
   const location = useLocation();
 
@@ -16,5 +16,3 @@ const RequireAuth = ({ children }: RouteProps) => {
 
   return children;
 };
-
-export default RequireAuth;

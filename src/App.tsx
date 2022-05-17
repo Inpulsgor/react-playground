@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'common/layout';
 import { Loader } from 'common/components';
 import { ROUTES } from 'types/enum';
+import { RequireAuth } from 'common/hoc/RequireAuth';
 import {
   HomePage,
   LoginPage,
@@ -16,7 +17,14 @@ const App: FC = () => {
     <Suspense fallback={<Loader isLoading />}>
       <Routes>
         <Route path={ROUTES.HOME} element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <HomePage />
+              </RequireAuth>
+            }
+          />
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
           <Route path={ROUTES.RECOVERY} element={<RecoveryPage />} />

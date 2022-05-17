@@ -3,7 +3,8 @@ import { LoaderState } from 'models/loader';
 import { LOADING_STATUS } from 'types/enum';
 
 const initialState: LoaderState = {
-  isLoading: LOADING_STATUS.IDLE,
+  isLoading: false,
+  status: LOADING_STATUS.IDLE,
 };
 
 export const loaderSlice = createSlice({
@@ -11,10 +12,12 @@ export const loaderSlice = createSlice({
   initialState,
   reducers: {
     loaderActive: state => {
-      state.isLoading = LOADING_STATUS.LOADING;
+      state.isLoading = true;
+      state.status = LOADING_STATUS.LOADING;
     },
     loaderDisabled: state => {
-      state.isLoading = LOADING_STATUS.IDLE;
+      state.isLoading = false;
+      state.status = LOADING_STATUS.IDLE;
     },
   },
 });

@@ -1,24 +1,39 @@
 import { FC } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { TextField, Button, FormControl } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { Container } from 'common/layout';
 
-interface DefaultValues {
+interface FormValues {
   [key: string]: string;
 }
 
-const defaultValues: DefaultValues = {
+const defaultValues = {
   name: '',
   email: '',
 };
 
 const Login: FC = () => {
-  const { control, handleSubmit } = useForm({
+  const auth = getAuth();
+  const { control, handleSubmit } = useForm<FormValues>({
     defaultValues,
   });
 
-  const handleFormSubmit = (data: DefaultValues) => {
-    console.log('data :>> ', data);
+  const handleFormSubmit: SubmitHandler<FormValues> = data => {
+    const { name, email } = data;
+    console.log('name :>> ', name);
+    console.log('email :>> ', email);
+
+    signInWithEmailAndPassword(auth, name, email)
+      .then(userCredential => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
 
   return (

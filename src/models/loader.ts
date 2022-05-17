@@ -1,5 +1,6 @@
 import { LOADING_STATUS } from 'types/enum';
 
 export interface LoaderState {
-  isLoading: LOADING_STATUS;
+  isLoading: boolean;
+  status: LOADING_STATUS;
 }
