@@ -1,9 +1,9 @@
 import { FC, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from 'common/layout';
+import { Layout, AuthLayout } from 'common/layout';
 import { Loader } from 'common/components';
 import { ROUTES } from 'types/enum';
-import { RequireAuth } from 'common/hoc/RequireAuth';
+import { PrivateRoute } from 'common/hoc/PrivateRoute';
 import {
   HomePage,
   LoginPage,
@@ -20,16 +20,18 @@ const App: FC = () => {
           <Route
             index
             element={
-              <RequireAuth>
+              <PrivateRoute>
                 <HomePage />
-              </RequireAuth>
+              </PrivateRoute>
             }
           />
-          <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+        </Route>
+        <Route path={ROUTES.AUTH} element={<AuthLayout />}>
+          <Route path={ROUTES.AUTH} element={<LoginPage />} />
           <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
           <Route path={ROUTES.RECOVERY} element={<RecoveryPage />} />
-          <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
         </Route>
+        <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

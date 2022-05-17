@@ -27,7 +27,6 @@
     "react/react-in-jsx-scope": 0,
     "react-hooks/exhaustive-deps": "warn",
     "quotes": ["warn", "single"],
-    "indent": ["warn", 2],
     "semi": ["warn", "always"],
     "prefer-const": "error",
     "jsx-quotes": ["warn", "prefer-double"],

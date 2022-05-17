@@ -1,13 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Credentials } from 'common/api/types';
-// import api from 'common/api/api';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+interface FormValues {
+  name: string;
+  email: string;
+}
 
 const login = createAsyncThunk(
   'auth/login',
-  async (credentials: Credentials, thunkAPI) => {
+  async (credentials: FormValues, thunkAPI) => {
     try {
-      // const response = await api.LOGIN(credentials);
-      // return response;
+      const auth = getAuth();
+      const { name, email } = credentials;
+
+      const response = await signInWithEmailAndPassword(auth, name, email);
+      console.log('response', response?.user);
     } catch (error) {
       thunkAPI.rejectWithValue({ error: error });
     }

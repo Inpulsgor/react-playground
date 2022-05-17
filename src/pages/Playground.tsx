@@ -5,7 +5,6 @@ import {
   Counter,
   Dropdown,
   Todo,
-  Form,
   Button,
   Tabs,
 } from 'common/components';
@@ -13,10 +12,6 @@ import { COLORS } from 'common/utils/colors';
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);
-
-  const handleSubmitForm = (data: any) => {
-    console.log(data);
-  };
 
   const toggleModal = () => setShowModal(!showModal);
 
@@ -40,7 +35,6 @@ const Playground: FC = () => {
       <ColorPicker colors={COLORS} />
       <Counter initialCount={0} />
       <Dropdown />
-      <Form formSubmit={handleSubmitForm} />
       <Todo />
       <Tabs />
     </div>

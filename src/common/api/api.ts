@@ -4,7 +4,7 @@
 //   signInWithEmailAndPassword,
 //   UserCredential,
 // } from 'firebase/auth';
-import { Credentials } from './types';
+// import { Credentials } from './types';
 
 // const auth = getAuth();
 

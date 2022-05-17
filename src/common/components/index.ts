@@ -8,7 +8,7 @@ export { default as TodoList } from './Todos/TodoList';
 export { default as TodoItem } from './Todos/TodoItem';
 export { default as TodoEditor } from './Todos/TodoEditor';
 export { default as TodoFilter } from './Todos/TodoFilter';
-export { default as Form } from './Form/Form';
+export { default as LoginForm } from './LoginForm/LoginForm';
 export { default as Button } from './Button/Button';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Nav } from './Nav/Nav';

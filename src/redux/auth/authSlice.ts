@@ -24,12 +24,12 @@ export const authSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(login.pending, state => {
       state.loading = LOADING_STATUS.LOADING;
-      state.status = REQUEST_STATUS.LOADING;
+      state.status = REQUEST_STATUS.PENDING;
     });
     builder.addCase(login.fulfilled, (state, action: PayloadAction) => {
-      // state.user = action.payload;
+      // state.token = action.payload.token;
       state.loading = LOADING_STATUS.IDLE;
-      state.status = REQUEST_STATUS.SUCCESS;
+      state.status = REQUEST_STATUS.SUCCEEDED;
     });
     builder.addCase(login.rejected, (state, action) => {
       state = {

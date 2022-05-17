@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import { SxProps } from '@mui/system';
-import { useTheme, useMediaQuery } from '@mui/material';
-import { Wrapper, Header, Footer, Main, Sidebar } from 'common/layout';
+import { Wrapper, Header, Footer, Main } from 'common/layout';
+
 interface LayoutStyles {
   [key: string]: SxProps;
 }
@@ -10,21 +10,12 @@ interface LayoutStyles {
 const styles: LayoutStyles = {
   wrapper: {
     display: 'grid',
-    gridTemplateColumns: {
-      xs: 'minmax(320px, 1fr)',
-      md: 'auto 230px minmax(320px, 1200px) auto',
-    },
+    gridTemplateColumns: 'minmax(320px, 1fr)',
     gridTemplateRows: 'auto 1fr auto',
-    gridTemplateAreas: {
-      xs: `
+    gridTemplateAreas: `
     	'header'
     	'main'
     	'footer'`,
-      md: `
-    	'. header header .'
-    	'. sidebar main .'
-    	'footer footer footer footer'`,
-    },
     gap: '40px 30px',
     minHeight: '100vh',
   },
@@ -40,6 +31,9 @@ const styles: LayoutStyles = {
   },
   main: {
     gridArea: 'main',
+    display: 'grid',
+    justifyContent: 'center',
+    alignContent: 'center',
   },
   footer: {
     gridArea: 'footer',
@@ -53,13 +47,9 @@ const styles: LayoutStyles = {
 };
 
 const Layout: FC = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
-
   return (
     <Wrapper style={styles.wrapper}>
       <Header style={styles.header} />
-      {matches && <Sidebar style={styles.sidebar} />}
       <Main style={styles.main}>
         <Outlet />
       </Main>
