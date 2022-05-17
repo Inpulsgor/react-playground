@@ -11,3 +11,5 @@ export { default as TodoFilter } from './Todos/TodoFilter';
 export { default as Form } from './Form/Form';
 export { default as Button } from './Button/Button';
 export { default as Tabs } from './Tabs/Tabs';
+export { default as Nav } from './Nav/Nav';
+export { default as Search } from './Search/Search';
