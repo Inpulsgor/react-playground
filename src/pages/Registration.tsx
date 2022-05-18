@@ -1,7 +1,13 @@
 import { FC } from 'react';
+import { Container } from 'common/layout';
+import { SignupForm } from 'common/components';
 
 const Registration: FC = () => {
-  return <div>Registration</div>;
+  return (
+    <Container>
+      <SignupForm />
+    </Container>
+  );
 };
 
 export default Registration;

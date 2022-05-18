@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
-import { LoaderState } from 'models/loader';
+import { LoaderState } from 'entities/loader/model/state';
 
 export const useLoading = (): LoaderState => {
   const { isLoading, status } = useSelector((state: RootState) => state.loader);

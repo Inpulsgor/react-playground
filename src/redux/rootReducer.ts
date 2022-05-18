@@ -2,8 +2,8 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import loaderSlice from 'redux/loader/loaderSlice';
-import authSlice from 'redux/auth/authSlice';
+import loaderSlice from 'entities/loader/redux/loaderSlice';
+import authSlice from 'entities/auth/redux/authSlice';
 
 const authPersistConfig = {
   key: 'auth', // localStorage key name

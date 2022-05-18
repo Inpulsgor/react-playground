@@ -41,8 +41,8 @@ const styles: LayoutStyles = {
     gridTemplateColumns: { xs: '1fr', md: '1fr auto auto' },
     gap: '10px 40px',
     padding: '24px',
-    bgcolor: '#7653FC',
-    color: 'custom.white',
+    color: 'text.primary',
+    fontWeight: 700,
   },
 };
 

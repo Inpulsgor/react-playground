@@ -3,5 +3,6 @@ import { resources } from 'translations/config';
 
 declare module 'react-i18next' {
   type DefaultResources = typeof resources['en'];
-  // interface Resources extends DefaultResources {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface Resources extends DefaultResources {}
 }

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { LoaderState } from 'models/loader';
+import { LoaderState } from 'entities/loader/model/state';
 import { LOADING_STATUS } from 'types/enum';
 
 const initialState: LoaderState = {
