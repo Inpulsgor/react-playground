@@ -1,28 +1,33 @@
 // eslint-disable-next-line import/named
 import { createTheme, responsiveFontSizes, Theme } from '@mui/material';
+import { orange, grey, green, teal } from '@mui/material/colors';
 
 let theme: Theme = createTheme({
   palette: {
     primary: {
-      main: '#7653FC',
+      main: grey[800],
       contrastText: '#FFF',
     },
     secondary: {
-      main: '#3B434E',
+      main: orange[500],
       contrastText: '#FFF',
     },
     success: {
-      main: '#191819',
-      contrastText: '#A2A2A2',
+      main: green[300],
+      contrastText: grey[800],
     },
     info: {
-      main: '#FFF',
-      contrastText: '#002E36',
+      main: teal[100],
+      contrastText: grey[800],
     },
     custom: {
       white: '#FFF',
       black: '#000',
-      mercury: '#E4E4E4',
+      green: '#ACBFA4',
+      amber: '#FF7F11',
+      beige: '#E2E8CE',
+      dark: '#262626',
+      red: '#FF1B1C',
     },
     background: {
       default: '#F5F6F8',
@@ -51,25 +56,26 @@ let theme: Theme = createTheme({
     fontWeightMedium: 500,
     fontWeightBold: 600,
     h2: {
-      fontSize: '40px',
-      fontWeight: 500,
+      fontSize: '32px',
+      fontWeight: 700,
+      textTransform: 'uppercase',
     },
     h3: {
       fontSize: '20px',
-      fontWeight: 500,
-      textTransform: 'none',
+      fontWeight: 700,
+      textTransform: 'uppercase',
     },
     h4: {
-      fontSize: '16px',
-      fontWeight: 500,
+      fontSize: '18px',
+      fontWeight: 700,
     },
     body1: {
       fontSize: '16px',
-      lineHeight: '16px',
+      lineHeight: '24px',
     },
     body2: {
-      fontSize: '14px',
-      lineHeight: '22.4px',
+      fontSize: '13px',
+      lineHeight: '17.7px',
     },
   },
   breakpoints: {
@@ -81,33 +87,7 @@ let theme: Theme = createTheme({
       xl: 1200,
     },
   },
-  components: {
-    MuiTooltip: {
-      styleOverrides: {
-        tooltip: {
-          backgroundColor: '#E4E4E4',
-          color: '#141414',
-          padding: '16px',
-          width: '100%',
-          maxWidth: '330px',
-        },
-        tooltipPlacementTop: {
-          backgroundColor: '#E4E4E4',
-        },
-        arrow: {
-          color: '#E4E4E4',
-        },
-      },
-    },
-    MuiAccordionSummary: {
-      styleOverrides: {
-        root: {
-          paddingLeft: '24px',
-          paddingRight: '24px',
-        },
-      },
-    },
-  },
+  components: {},
 });
 
 theme = responsiveFontSizes(theme);

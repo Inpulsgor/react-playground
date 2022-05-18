@@ -1,23 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { LoginCredentials } from 'models/auth';
 
-interface FormValues {
-  name: string;
-  email: string;
-}
+import { loaderActive, loaderDisabled } from 'redux/loader/loaderSlice';
+import { loginError, clearError } from 'redux/auth/authSlice';
 
 const login = createAsyncThunk(
   'auth/login',
-  async (credentials: FormValues, thunkAPI) => {
-    try {
-      const auth = getAuth();
-      const { name, email } = credentials;
+  async (credentials: LoginCredentials, thunkAPI) => {
+    thunkAPI.dispatch(loaderActive());
 
-      const response = await signInWithEmailAndPassword(auth, name, email);
-      console.log('response', response?.user);
-    } catch (error) {
-      thunkAPI.rejectWithValue({ error: error });
-    }
+    const auth = getAuth();
+
+    signInWithEmailAndPassword(auth, credentials.name, credentials.email)
+      .then(response => {
+        // thunkAPI.dispatch(loginSuccess(response));
+        // thunkAPI.dispatch(clearError());
+      })
+      .catch(error => {
+        thunkAPI.dispatch(loginError(error.message));
+      })
+      .finally(() => thunkAPI.dispatch(loaderDisabled()));
   },
 );
 

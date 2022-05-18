@@ -1,18 +1,18 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
+import { AuthState } from 'models/auth';
 
-type UseAuthValue = {
-  token: string | null;
-  isAuthenticated: boolean;
-};
-
-export const useAuth = (): UseAuthValue => {
-  const { token, isAuthenticated } = useSelector(
+export const useAuth = (): AuthState => {
+  const { token, isAuthenticated, user, loading, error, status } = useSelector(
     (state: RootState) => state.auth,
   );
 
   return {
-    token,
     isAuthenticated,
+    loading,
+    token,
+    user,
+    error,
+    status,
   };
 };

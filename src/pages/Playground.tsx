@@ -8,7 +8,7 @@ import {
   Button,
   Tabs,
 } from 'common/components';
-import { COLORS } from 'common/utils/colors';
+import { COLORS } from 'common/static/constants';
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);

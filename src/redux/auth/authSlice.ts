@@ -16,31 +16,35 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    updateAccessToken: (state, action) => {
-      state.token = action.payload;
-    },
-    reset: () => initialState,
+    loginError: (state, { payload }) => ({
+      ...state,
+      error: payload,
+    }),
+    clearError: (state, { payload }) => ({
+      ...state,
+      error: null,
+    }),
   },
-  extraReducers: builder => {
-    builder.addCase(login.pending, state => {
-      state.loading = LOADING_STATUS.LOADING;
-      state.status = REQUEST_STATUS.PENDING;
-    });
-    builder.addCase(login.fulfilled, (state, action: PayloadAction) => {
-      // state.token = action.payload.token;
-      state.loading = LOADING_STATUS.IDLE;
-      state.status = REQUEST_STATUS.SUCCEEDED;
-    });
-    builder.addCase(login.rejected, (state, action) => {
-      state = {
-        ...initialState,
-        error: action.payload,
-        status: REQUEST_STATUS.FAILED,
-      };
-    });
-  },
+  // extraReducers: builder => {
+  //   builder.addCase(login.pending, state => {
+  //     state.loading = LOADING_STATUS.LOADING;
+  //     state.status = REQUEST_STATUS.PENDING;
+  //   });
+  //   builder.addCase(login.fulfilled, (state, action: PayloadAction) => {
+  //     // state.token = action.payload.token;
+  //     state.loading = LOADING_STATUS.IDLE;
+  //     state.status = REQUEST_STATUS.SUCCEEDED;
+  //   });
+  //   builder.addCase(login.rejected, (state, action) => {
+  //     state = {
+  //       ...initialState,
+  //       error: action.payload,
+  //       status: REQUEST_STATUS.FAILED,
+  //     };
+  //   });
+  // },
 });
 
-export const { reset, updateAccessToken } = authSlice.actions;
+export const { loginError, clearError } = authSlice.actions;
 
 export default authSlice;

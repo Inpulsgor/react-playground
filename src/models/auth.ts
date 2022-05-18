@@ -9,3 +9,8 @@ export interface AuthState {
   status: REQUEST_STATUS | null;
   error: SerializedError | null | unknown;
 }
+
+export interface LoginCredentials {
+  name: string;
+  email: string;
+}
