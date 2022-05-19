@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 export interface IProps {
   style: string;
   type?: Type;
@@ -8,7 +8,7 @@ export interface IProps {
 }
 
 enum Type {
-  submit = 'submit',
-  button = 'button',
-  reset = 'reset',
+  submit = "submit",
+  button = "button",
+  reset = "reset",
 }

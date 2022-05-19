@@ -1,5 +1,5 @@
-import { Component } from 'react';
-import { IProps, IState } from './interface';
+import { Component } from "react";
+import { IProps, IState } from "./interface";
 
 class ColorPicker extends Component<IProps, IState> {
   state = {

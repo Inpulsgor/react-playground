@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { IProps } from './interface';
+import { FC } from "react";
+import { IProps } from "./interface";
 
 const ButtonClose: FC<IProps> = ({ onClick, children }) => {
   return (

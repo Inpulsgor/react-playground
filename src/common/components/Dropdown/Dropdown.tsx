@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+import { Component, ReactNode } from "react";
 export interface IProps {
   children?: ReactNode;
 }
@@ -20,7 +20,7 @@ class Dropdown extends Component<IProps, IState> {
     return (
       <div>
         <button type="button" onClick={this.handleToggle}>
-          {visible ? 'Hide' : 'Show'}
+          {visible ? "Hide" : "Show"}
         </button>
 
         {visible && (

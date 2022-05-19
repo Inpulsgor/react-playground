@@ -1,7 +1,7 @@
-import { FC, ReactNode } from 'react';
-import { createPortal } from 'react-dom';
+import { FC, ReactNode } from "react";
+import { createPortal } from "react-dom";
 
-const rootModal = document.querySelector('#root-modal') as HTMLDivElement;
+const rootModal = document.querySelector("#root-modal") as HTMLDivElement;
 
 export interface ModalProps {
   showModal: boolean;

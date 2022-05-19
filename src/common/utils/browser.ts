@@ -3,22 +3,22 @@ export const browser = (): string => {
 
   switch (true) {
     case test(/edg/i):
-      return 'Microsoft Edge';
+      return "Microsoft Edge";
     case test(/trident/i):
-      return 'Microsoft Internet Explorer';
+      return "Microsoft Internet Explorer";
     case test(/firefox|fxios/i):
-      return 'Mozilla Firefox';
+      return "Mozilla Firefox";
     case test(/opr\//i):
-      return 'Opera';
+      return "Opera";
     case test(/ucbrowser/i):
-      return 'UC Browser';
+      return "UC Browser";
     case test(/samsungbrowser/i):
-      return 'Samsung Browser';
+      return "Samsung Browser";
     case test(/chrome|chromium|crios/i):
-      return 'Google Chrome';
+      return "Google Chrome";
     case test(/safari/i):
-      return 'Apple Safari';
+      return "Apple Safari";
     default:
-      return 'Other';
+      return "Other";
   }
 };

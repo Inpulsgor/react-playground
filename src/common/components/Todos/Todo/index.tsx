@@ -1,12 +1,12 @@
-import { Component, ReactNode } from 'react';
-import shortid from 'shortid';
+import { Component, ReactNode } from "react";
+import shortid from "shortid";
 import {
   TodoList,
   TodoEditor,
   // TodoFilter
-} from 'common/components';
+} from "common/components";
 // import { localStorageSet, localStorageGet } from 'common/utils/storage';
-import initialTodos from './todos.json';
+import initialTodos from "./todos.json";
 export interface TodoProps {
   children?: ReactNode;
 }
@@ -25,7 +25,7 @@ export type TodoItem = {
 class Todo extends Component<TodoProps, TodoState> {
   state = {
     todos: initialTodos,
-    filter: '',
+    filter: "",
   };
 
   componentDidMount(): void {

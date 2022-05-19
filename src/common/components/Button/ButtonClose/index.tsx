@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { ReactComponent as CloseIcon } from 'assets/icons/cross.svg';
-import { IProps } from './interface';
+import { FC } from "react";
+import { ReactComponent as CloseIcon } from "assets/icons/cross.svg";
+import { IProps } from "./interface";
 
 const ButtonClose: FC<IProps> = ({ onClick }) => {
   return (

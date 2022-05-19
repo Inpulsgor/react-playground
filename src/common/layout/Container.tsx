@@ -1,5 +1,5 @@
-import { FC, ReactNode } from 'react';
-import { Container as ContainerWrapper } from '@mui/material';
+import { FC, ReactNode } from "react";
+import { Container as ContainerWrapper } from "@mui/material";
 export interface ContainerProps {
   children?: ReactNode;
 }

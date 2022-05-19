@@ -1,9 +1,9 @@
-import { FC, KeyboardEvent } from 'react';
-import { createSearchParams, useNavigate } from 'react-router-dom';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import { Paper, InputBase, IconButton } from '@mui/material';
-import { Search as SearchIcon } from '@mui/icons-material';
-import { styles } from './Search.styles';
+import { FC, KeyboardEvent } from "react";
+import { createSearchParams, useNavigate } from "react-router-dom";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { Paper, InputBase, IconButton } from "@mui/material";
+import { Search as SearchIcon } from "@mui/icons-material";
+import { styles } from "./Search.styles";
 
 type FormValues = {
   search: string;
@@ -13,7 +13,7 @@ const Search: FC = () => {
   const navigate = useNavigate();
   const { handleSubmit, control, reset, getValues } = useForm<FormValues>({
     defaultValues: {
-      search: '',
+      search: "",
     },
   });
 
@@ -21,7 +21,7 @@ const Search: FC = () => {
     const { search } = getValues();
 
     navigate({
-      pathname: 'search',
+      pathname: "search",
       search: createSearchParams({
         search,
       }).toString(),
@@ -29,11 +29,11 @@ const Search: FC = () => {
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key == 'Enter') goToSearch();
+    if (e.key == "Enter") goToSearch();
   };
 
   const onSumbit: SubmitHandler<FormValues> = data => {
-    console.log('data', data);
+    console.log("data", data);
     reset();
   };
 
@@ -54,7 +54,7 @@ const Search: FC = () => {
             onChange={onChange}
             onKeyDown={handleKeyDown}
             placeholder="Search..."
-            inputProps={{ 'aria-label': 'Search on website' }}
+            inputProps={{ "aria-label": "Search on website" }}
           />
         )}
       />

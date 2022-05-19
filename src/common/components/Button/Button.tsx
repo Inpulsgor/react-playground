@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import ButtonClose from './ButtonClose';
-import ButtonToggle from './ButtonToggle';
-import { IProps } from './interface';
+import { FC } from "react";
+import ButtonClose from "./ButtonClose";
+import ButtonToggle from "./ButtonToggle";
+import { IProps } from "./interface";
 
-const Button: FC<IProps> = ({ style = 'default', onClick, children }) => {
+const Button: FC<IProps> = ({ style = "default", onClick, children }) => {
   switch (style) {
-    case 'close':
+    case "close":
       return <ButtonClose onClick={onClick} />;
-    case 'toggle':
+    case "toggle":
       return <ButtonToggle onClick={onClick}>{children}</ButtonToggle>;
     default:
       return <></>;

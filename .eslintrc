@@ -26,7 +26,7 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
     "react-hooks/exhaustive-deps": "warn",
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "double"],
     "semi": ["warn", "always"],
     "prefer-const": "error",
     "jsx-quotes": ["warn", "prefer-double"],
