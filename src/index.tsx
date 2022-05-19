@@ -9,6 +9,7 @@ import { store, persistor } from "./redux/store";
 import theme from "common/theme/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "translations/config";
 import "common/api/firebase";
 
 const rootElement = document.getElementById("root");

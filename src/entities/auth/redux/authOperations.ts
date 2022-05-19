@@ -11,17 +11,16 @@ import {
   loaderDisabled,
 } from "entities/loader/redux/loaderSlice";
 
-const signIn = createAsyncThunk(
+export const signIn = createAsyncThunk(
   "auth/login",
-  async (credentials: LoginCredentials, thunkAPI) => {
+  async ({ email, password }: LoginCredentials, thunkAPI) => {
     thunkAPI.dispatch(loaderActive());
 
     try {
-      const auth = await getAuth();
-      const { email, password } = credentials;
+      const auth = getAuth();
       const response = await signInWithEmailAndPassword(auth, email, password);
 
-      console.log("auth/login", response);
+      console.log("response", response);
 
       return {
         accessToken: response.user.refreshToken,
@@ -34,5 +33,3 @@ const signIn = createAsyncThunk(
     }
   },
 );
-
-export { signIn };

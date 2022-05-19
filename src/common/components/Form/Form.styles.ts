@@ -3,9 +3,11 @@ export const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    // maxWidth: '600px',
+    width: "100%",
   },
   avatar: { m: 1, bgcolor: "secondary.main" },
-  button: { mt: 3, mb: 2 },
-  signup: { display: "flex", ml: "auto", fontSize: "12px" },
+  title: {
+    mb: "32px",
+  },
+  link: { display: "flex", fontSize: "12px" },
 };

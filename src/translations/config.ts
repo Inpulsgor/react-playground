@@ -10,6 +10,7 @@ export const resources = {
 
 i18n.use(initReactI18next).init({
   lng: "en",
+  ns: ["translation"],
   interpolation: {
     escapeValue: false,
   },

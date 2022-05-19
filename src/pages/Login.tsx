@@ -1,13 +1,8 @@
 import { FC } from "react";
-import { Container } from "common/layout";
-import { LoginForm } from "common/components";
+import { Form } from "common/components";
 
 const Login: FC = () => {
-  return (
-    <Container>
-      <LoginForm />
-    </Container>
-  );
+  return <Form type="login" />;
 };
 
 export default Login;
