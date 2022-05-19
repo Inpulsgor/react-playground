@@ -1,5 +1,5 @@
-import { useState, useEffect, Dispatch } from 'react';
-import { localStorageGet, localStorageSet } from 'common/utils/storage';
+import { useState, useEffect, Dispatch } from "react";
+import { localStorageGet, localStorageSet } from "common/utils/storage";
 
 export const useLocalStorage = (
   initialValue: unknown,

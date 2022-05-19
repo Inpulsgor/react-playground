@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { Container } from 'common/layout';
-import { SignupForm } from 'common/components';
+import { FC } from "react";
+import { Container } from "common/layout";
+import { SignupForm } from "common/components";
 
 const Registration: FC = () => {
   return (

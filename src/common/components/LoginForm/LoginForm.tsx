@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { LockOutlined as LockOutlinedIcon } from '@mui/icons-material';
+import { FC } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { LockOutlined as LockOutlinedIcon } from "@mui/icons-material";
 import {
   Box,
   Avatar,
@@ -11,29 +11,29 @@ import {
   Checkbox,
   Typography,
   FormControl,
-} from '@mui/material';
+} from "@mui/material";
 // import { useAppDispatch } from 'redux/store';
-import { ROUTES } from 'types/enum';
-import { FormValues } from './LoginForm.types';
-import { styles } from './LoginForm.styles';
+import { ROUTES } from "types/enum";
+import { FormValues } from "./LoginForm.types";
+import { styles } from "./LoginForm.styles";
 
 const defaultValues = {
-  name: '',
-  email: '',
+  name: "",
+  email: "",
 };
 
 const LoginForm: FC = () => {
   // const dispatch = useAppDispatch();
   const { handleSubmit } = useForm<FormValues>({
     defaultValues,
-    mode: 'onBlur',
+    mode: "onBlur",
   });
 
   const handleFormSubmit: SubmitHandler<FormValues> = data => {
     const { name, email } = data;
 
-    console.log('name :>> ', name);
-    console.log('email :>> ', email);
+    console.log("name :>> ", name);
+    console.log("email :>> ", email);
   };
 
   return (

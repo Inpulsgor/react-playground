@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 import {
   Modal,
   ColorPicker,
@@ -7,8 +7,8 @@ import {
   Todo,
   Button,
   Tabs,
-} from 'common/components';
-import { COLORS } from 'common/static/constants';
+} from "common/components";
+import { COLORS } from "common/static/constants";
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);

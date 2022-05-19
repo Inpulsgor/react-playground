@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { TodoItem } from '../..';
+import { FC } from "react";
+import { TodoItem } from "../..";
 
 type Todo = {
   id: string;

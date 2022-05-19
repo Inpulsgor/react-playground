@@ -1,4 +1,4 @@
-import { ChangeEvent, Component } from 'react';
+import { ChangeEvent, Component } from "react";
 
 export interface IProps {
   onAddTodo: (message: string) => void;
@@ -9,7 +9,7 @@ export interface IState {
 
 class TodoEditor extends Component<IProps, IState> {
   state = {
-    message: '',
+    message: "",
   };
 
   handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
@@ -20,7 +20,7 @@ class TodoEditor extends Component<IProps, IState> {
     e.preventDefault();
 
     this.props.onAddTodo(this.state.message);
-    this.setState({ message: '' });
+    this.setState({ message: "" });
   };
 
   render(): JSX.Element {

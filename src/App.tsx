@@ -1,17 +1,17 @@
-import { FC, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { PrivateRoute, PublicRoute } from 'common/hoc';
-import { useLoading } from 'common/hooks/useLoader';
-import { AppLayout, AuthLayout } from 'common/layout';
-import { Loader } from 'common/components';
-import { ROUTES } from 'types/enum';
+import { FC, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import { PrivateRoute, PublicRoute } from "common/hoc";
+import { useLoading } from "common/hooks/useLoader";
+import { AppLayout, AuthLayout } from "common/layout";
+import { Loader } from "common/components";
+import { ROUTES } from "types/enum";
 import {
   HomePage,
   LoginPage,
   RegistrationPage,
   RecoveryPage,
   NotFoundPage,
-} from 'routes';
+} from "routes";
 
 const App: FC = () => {
   const { isLoading } = useLoading();

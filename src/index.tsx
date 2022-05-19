@@ -1,19 +1,19 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { store, persistor } from './redux/store';
-import theme from 'common/theme/theme';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'common/api/firebase';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { store, persistor } from "./redux/store";
+import theme from "common/theme/theme";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "common/api/firebase";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
-if (!rootElement) throw new Error('Failed to find the root element');
+if (!rootElement) throw new Error("Failed to find the root element");
 
 const root = createRoot(rootElement && rootElement);
 

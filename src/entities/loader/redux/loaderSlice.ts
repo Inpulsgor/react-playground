@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { LoaderState } from 'entities/loader/model/state';
-import { LOADING_STATUS } from 'types/enum';
+import { createSlice } from "@reduxjs/toolkit";
+import { LoaderState } from "entities/loader/model/state";
+import { LOADING_STATUS } from "types/enum";
 
 const initialState: LoaderState = {
   isLoading: false,
@@ -8,7 +8,7 @@ const initialState: LoaderState = {
 };
 
 export const loaderSlice = createSlice({
-  name: 'loader',
+  name: "loader",
   initialState,
   reducers: {
     loaderActive: state => {

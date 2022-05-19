@@ -8,7 +8,7 @@ export const localStorageGet = (key: string): StorageState | undefined => {
 
     return serializedState === null ? undefined : JSON.parse(serializedState);
   } catch (err) {
-    console.error('Get local storage item error: ', err);
+    console.error("Get local storage item error: ", err);
   }
 };
 
@@ -18,6 +18,6 @@ export const localStorageSet = <T>(key: string, value: T): void => {
 
     localStorage.setItem(key, serializedState);
   } catch (err) {
-    console.error('Set local storage item error: ', err);
+    console.error("Set local storage item error: ", err);
   }
 };

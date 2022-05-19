@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { useForm, Controller } from 'react-hook-form';
+import { FC } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
 import {
   Box,
   Avatar,
@@ -10,10 +10,10 @@ import {
   Checkbox,
   Grid,
   Typography,
-} from '@mui/material';
-import { LockOutlined as LockOutlinedIcon } from '@mui/icons-material';
-import { ROUTES } from 'types/enum';
-import { styles } from './SignupForm.styles';
+} from "@mui/material";
+import { LockOutlined as LockOutlinedIcon } from "@mui/icons-material";
+import { ROUTES } from "types/enum";
+import { styles } from "./SignupForm.styles";
 
 type FormData = {
   firstName: string;
@@ -24,10 +24,10 @@ type FormData = {
 };
 
 const defaultValues = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  password: '',
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
   agreement: false,
 };
 

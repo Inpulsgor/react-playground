@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
-import { AuthState } from 'entities/auth/model/state';
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+import { AuthState } from "entities/auth/model/state";
 
 export const useAuth = (): AuthState => {
   const { accessToken, isAuthenticated, user, error, status } = useSelector(

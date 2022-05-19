@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 const Recovery: FC = () => {
   return <div>Recovery</div>;

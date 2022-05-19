@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from 'common/hooks/useAuth';
+import { FC } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "common/hooks/useAuth";
 
 interface PublicRouteProps {
   restricted: boolean;

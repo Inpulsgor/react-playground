@@ -1,5 +1,5 @@
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 import {
   FLUSH,
   REHYDRATE,
@@ -7,7 +7,7 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
+} from "redux-persist";
 
 const middleware = [
   ...getDefaultMiddleware({

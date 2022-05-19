@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
-import { SxProps } from '@mui/system';
-import { Box } from '@mui/material';
+import { FC, ReactNode } from "react";
+import { SxProps } from "@mui/system";
+import { Box } from "@mui/material";
 
 export interface WrapperProps {
   children?: ReactNode;
