@@ -1,26 +1,19 @@
+import { register } from "entities/auth/api/auth";
+import { RegistrationCredentials } from "models/auth";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  // createUserWithEmailAndPassword,
-} from "firebase/auth";
-import { LoginCredentials } from "models/auth";
 
 import {
   loaderActive,
   loaderDisabled,
 } from "entities/loader/redux/loaderSlice";
 
-export const signIn = createAsyncThunk(
-  "auth/login",
-  async ({ email, password }: LoginCredentials, thunkAPI) => {
+export const signUp = createAsyncThunk(
+  "auth/signUp",
+  async (credentials: RegistrationCredentials, thunkAPI) => {
     thunkAPI.dispatch(loaderActive());
 
     try {
-      const auth = getAuth();
-      const response = await signInWithEmailAndPassword(auth, email, password);
-
-      console.log("response", response);
+      const response = await register(credentials);
 
       return {
         accessToken: response.user.refreshToken,

@@ -8,9 +8,10 @@ import {
   FormControl,
 } from "@mui/material";
 // import { useAppDispatch } from "common/hooks/useSelector";
-// import { signIn } from "entities/auth/redux/authOperations";
+// import {} from "entities/auth/redux/authOperations";
 import { FormValues } from "./LoginForm.types";
 import { styles } from "./LoginForm.styles";
+import { LoginCredentials } from "models/auth";
 
 const defaultValues = {
   email: "",
@@ -26,7 +27,12 @@ const LoginForm: FC = () => {
   });
 
   const handleFormSubmit: SubmitHandler<FormValues> = ({ password, email }) => {
-    // dispatch(signIn({}));
+    const credentials: LoginCredentials = {
+      email: email,
+      password: password,
+    };
+
+    console.log("credentials", credentials);
   };
 
   return (

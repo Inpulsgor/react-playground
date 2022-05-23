@@ -22,16 +22,16 @@ const Footer: FC<FooterProps> = ({ style }) => {
   return (
     <Box sx={style} component="footer">
       <Typography component="span">
-        {currentYear} - {t("layout.footer.rights")}
+        {currentYear} - {t("pages.home.rights")}
       </Typography>
 
       {isAuthenticated && (
         <>
           <Link sx={styles.link} href="#">
-            {t("layout.footer.agreement")}
+            {t("pages.home.agreement")}
           </Link>
           <Link sx={styles.link} href="#">
-            {t("layout.footer.policy")}
+            {t("pages.home.policy")}
           </Link>
         </>
       )}

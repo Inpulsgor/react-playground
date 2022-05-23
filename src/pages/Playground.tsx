@@ -1,4 +1,6 @@
 import { FC, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import {
   Modal,
   ColorPicker,
@@ -12,11 +14,17 @@ import { COLORS } from "common/static/constants";
 
 const Playground: FC = () => {
   const [showModal, setShowModal] = useState(false);
+  const { t } = useTranslation();
 
   const toggleModal = () => setShowModal(!showModal);
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>{t("meta.playground.title")}</title>
+        <meta name="description" content={t("meta.playground.description")} />
+      </Helmet>
+
       <Button style="toggle" onClick={toggleModal}>
         Show modal
       </Button>
@@ -37,7 +45,7 @@ const Playground: FC = () => {
       <Dropdown />
       <Todo />
       <Tabs />
-    </div>
+    </>
   );
 };
 
