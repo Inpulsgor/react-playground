@@ -9,3 +9,10 @@ export interface AuthState {
   status: REQUEST_STATUS | null;
   error: SerializedError | null;
 }
+
+export enum AuthActions {
+  AUTH = "auth",
+  AUTH_SIGNIN = "auth/signIn",
+  AUTH_SIGNUP = "auth/signUp",
+  AUTH_SIGNOUT = "auth/signOut",
+}
