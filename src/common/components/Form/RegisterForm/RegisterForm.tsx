@@ -8,7 +8,7 @@ import {
   Checkbox,
   Grid,
 } from "@mui/material";
-// import { useAppDispatch } from "common/hooks/useSelector";
+// import { useAppDispatch } from "common/hooks/useSelector";yarn
 // import { signUp } from "entities/auth/redux/authOperations";
 import { FormData } from "./RegisterForm.types";
 import { styles } from "./RegisterForm.styles";

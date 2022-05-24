@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["react/next", "react-dom/next"],
+    // "types": ["react/next", "react-dom/next"],
     "baseUrl": "src",
     "allowJs": true,
     "skipLibCheck": true,

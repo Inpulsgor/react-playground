@@ -7,8 +7,8 @@ import {
   Checkbox,
   FormControl,
 } from "@mui/material";
-// import { useAppDispatch } from "common/hooks/useSelector";
-// import {} from "entities/auth/redux/authOperations";
+import { useAppDispatch } from "redux/store";
+import { signIn } from "entities/auth/redux/authOperations";
 import { FormValues } from "./LoginForm.types";
 import { styles } from "./LoginForm.styles";
 import { LoginCredentials } from "models/auth";
@@ -20,7 +20,7 @@ const defaultValues = {
 };
 
 const LoginForm: FC = () => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const { control, handleSubmit } = useForm<FormValues>({
     defaultValues,
     mode: "onBlur",
@@ -32,7 +32,7 @@ const LoginForm: FC = () => {
       password: password,
     };
 
-    console.log("credentials", credentials);
+    // dispatch(signIn(credentials));
   };
 
   return (

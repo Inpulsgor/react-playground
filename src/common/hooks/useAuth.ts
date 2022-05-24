@@ -1,10 +1,9 @@
-import { RootState } from "redux/store";
+import { AppState, useAppSelector } from "redux/store";
 import { AuthState } from "entities/auth/model/types";
-import { useAppSelector } from "common/hooks/useSelector";
 
 export const useAuth = (): AuthState => {
   const { accessToken, isAuthenticated, user, error, status } = useAppSelector(
-    (state: RootState) => state.auth,
+    (state: AppState) => state.auth,
   );
 
   return {

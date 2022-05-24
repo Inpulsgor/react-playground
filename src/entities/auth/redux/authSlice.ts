@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { signIn } from "entities/auth/redux/authOperations";
 import { AuthState } from "entities/auth/model/types";
-import { signUp } from "entities/auth/redux/authOperations";
 import { REQUEST_STATUS } from "types/enum";
 
 const initialState: AuthState = {
@@ -14,57 +14,20 @@ const initialState: AuthState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    // signInRequest: state => ({
-    //   ...state,
-    //   status: REQUEST_STATUS.PENDING,
-    // }),
-    // signInSuccess: (state, { payload }) => ({
-    //   isAuthenticated: true,
-    //   accessToken: payload.accessToken,
-    //   user: payload.user,
-    //   status: REQUEST_STATUS.SUCCEEDED,
-    //   error: null,
-    // }),
-    // signInError: (state, { payload }) => ({
-    //   ...state,
-    //   status: REQUEST_STATUS.FAILED,
-    //   error: payload,
-    // }),
-    // signUpSuccess: (state, { payload }) => ({
-    //   isAuthenticated: true,
-    //   accessToken: payload.accessToken,
-    //   user: payload.user,
-    //   status: REQUEST_STATUS.SUCCEEDED,
-    //   error: null,
-    // }),
-    // signUpError: (state, { payload }) => ({
-    //   ...state,
-    //   status: REQUEST_STATUS.FAILED,
-    //   error: payload,
-    // }),
-    // signOutSuccess: () => initialState,
-    // signOutError: (state, { payload }) => ({
-    //   ...state,
-    //   error: payload,
-    // }),
-    // clearError: state => ({
-    //   ...state,
-    //   status: REQUEST_STATUS.IDLE,
-    //   error: null,
-    // }),
-  },
+  reducers: {},
   extraReducers: builder => {
-    builder.addCase(signUp.pending, state => {
+    builder.addCase(signIn.pending, state => {
       state.status = REQUEST_STATUS.PENDING;
       state.error = null;
     });
-    builder.addCase(signUp.fulfilled, (state, action) => {
+    builder.addCase(signIn.fulfilled, (state, action) => {
+      state.isAuthenticated = true;
       state.accessToken = action.payload?.accessToken;
       state.user = action.payload?.user;
       state.status = REQUEST_STATUS.SUCCEEDED;
+      state.error = null;
     });
-    builder.addCase(signUp.rejected, (state, action) => {
+    builder.addCase(signIn.rejected, (state, action) => {
       state = {
         ...initialState,
         error: action.error,
@@ -73,8 +36,5 @@ const authSlice = createSlice({
     });
   },
 });
-
-// export const { signInRequest, signInSuccess, signInError, clearError } =
-//   authSlice.actions;
 
 export default authSlice;
