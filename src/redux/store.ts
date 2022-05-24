@@ -23,6 +23,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
 
-const persistor = persistStore(store);
-
-export { store, persistor };
+export const persistor = persistStore(store);
+export default store;
