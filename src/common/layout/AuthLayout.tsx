@@ -32,17 +32,14 @@ const styles: LayoutStyles = {
   main: {
     gridArea: "main",
     display: "grid",
-    justifyContent: "center",
     alignContent: "center",
   },
   footer: {
     gridArea: "footer",
-    display: "grid",
-    gridTemplateColumns: { xs: "1fr", md: "1fr auto auto" },
-    gap: "10px 40px",
+    fontWeight: 700,
+    textAlign: "center",
     padding: "24px",
     color: "text.primary",
-    fontWeight: 700,
   },
 };
 

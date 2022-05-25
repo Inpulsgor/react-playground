@@ -1,42 +1,55 @@
 {
   "meta": {
     "home": {
-      "title": "Homepage | Playground",
-      "description": ""
+      "title": "Home",
+      "description": "Home page description"
+    },
+    "playground": {
+      "title": "Playground",
+      "description": "Playground page description"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Login page description"
+    },
+    "register": {
+      "title": "Registration",
+      "description": "Registration page description"
+    },
+    "recovery": {
+      "title": "Recovery",
+      "description": "Recovery page description"
     },
     "termsOfService": {
-      "title": "Terms of Service | Playground",
-      "description": ""
+      "title": "Terms of Service",
+      "description": "Terms of Servic page description"
     },
     "privacyPolicy": {
-      "title": "Privacy Policy | Playground",
-      "description": ""
+      "title": "Privacy Policy",
+      "description": "Privacy Policy page description"
     },
     "profile": {
-      "title": "Profile | Playground",
-      "description": ""
-    }
-  },
-  "layout": {
-    "header": {},
-    "footer": {
-      "project": "React-playground",
-      "rights": "All Rights Reserved"
+      "title": "Profile",
+      "description": "Profile page description"
+    },
+    "notFound": {
+      "title": "404",
+      "description": "Page not found"
     }
   },
   "components": {},
   "pages": {
     "home": {
-      "title": "Welcome on Home Page"
+      "title": "Welcome on Home Page",
+      "project": "React-playground",
+      "rights": "All Rights Reserved",
+      "agreement": "User agreement",
+      "policy": "Privacy policy"
     },
-    "metamask": {},
-    "marketplace": {},
-    "profile": {},
-    "privacy_policy": {},
-    "not_found": {}
+    "not_found": {
+      "message": "Sorry, this page does not exist",
+      "redirect": "You will be redirected to home page in 5 seconds"
+    }
   },
-  "errorMessages": {},
-  "legal": {},
-  "static": {},
-  "other": {}
+  "errorMessages": {}
 }

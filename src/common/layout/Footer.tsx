@@ -2,7 +2,8 @@ import { FC, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { format } from "date-fns";
 import { SxProps } from "@mui/system";
-import { Box, Link } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
+import { useAuth } from "common/hooks/useAuth";
 
 interface FooterProps {
   children?: ReactNode;
@@ -16,18 +17,24 @@ const styles = {
 const Footer: FC<FooterProps> = ({ style }) => {
   const currentYear = format(new Date(), "yyyy");
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
 
   return (
     <Box sx={style} component="footer">
-      <Box component="span">
-        {t("layout.footer.project")} - {currentYear} All Rights Reserved
-      </Box>
-      <Link sx={styles.link} href="#">
-        User agreement
-      </Link>
-      <Link sx={styles.link} href="#">
-        Privacy policy
-      </Link>
+      <Typography component="span">
+        {currentYear} - {t("pages.home.rights")}
+      </Typography>
+
+      {isAuthenticated && (
+        <>
+          <Link sx={styles.link} href="#">
+            {t("pages.home.agreement")}
+          </Link>
+          <Link sx={styles.link} href="#">
+            {t("pages.home.policy")}
+          </Link>
+        </>
+      )}
     </Box>
   );
 };

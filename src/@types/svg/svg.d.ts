@@ -13,3 +13,18 @@ declare module "*.svg" {
 declare module "*.png" {
   export default "" as string;
 }
+
+// declare module "*.svg" {
+//   const content: any;
+//   export default content;
+// }
+
+// declare module "*.png" {
+//   const content: any;
+//   export default content;
+// }
+
+// declare module "*.scss" {
+//   const content: any;
+//   export default content;
+// }

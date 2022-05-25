@@ -1,12 +1,20 @@
 import { FC } from "react";
-import { Container } from "common/layout";
-import { LoginForm } from "common/components";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
+import { Form } from "common/components";
 
 const Login: FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <Container>
-      <LoginForm />
-    </Container>
+    <>
+      <Helmet>
+        <title>{t("meta.login.title")}</title>
+        <meta name="description" content={t("meta.login.description")} />
+      </Helmet>
+
+      <Form type="login" />
+    </>
   );
 };
 

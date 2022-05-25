@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AuthState } from "entities/auth/model/state";
-import { REQUEST_STATUS } from "types/enum";
 import { signIn } from "entities/auth/redux/authOperations";
+import { AuthState } from "entities/auth/model/types";
+import { REQUEST_STATUS } from "types/enum";
 
 const initialState: AuthState = {
   isAuthenticated: false,
   accessToken: null,
   user: null,
-  status: null,
+  status: REQUEST_STATUS.IDLE,
   error: null,
 };
 
@@ -18,11 +18,14 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(signIn.pending, state => {
       state.status = REQUEST_STATUS.PENDING;
+      state.error = null;
     });
     builder.addCase(signIn.fulfilled, (state, action) => {
+      state.isAuthenticated = true;
       state.accessToken = action.payload?.accessToken;
       state.user = action.payload?.user;
       state.status = REQUEST_STATUS.SUCCEEDED;
+      state.error = null;
     });
     builder.addCase(signIn.rejected, (state, action) => {
       state = {
@@ -33,7 +36,5 @@ const authSlice = createSlice({
     });
   },
 });
-
-// export const {} = authSlice.actions;
 
 export default authSlice;

@@ -4,11 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { store, persistor } from "./redux/store";
-import theme from "common/theme/theme";
+import store, { persistor } from "./redux/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "translations/config";
 import "common/api/firebase";
 
 const rootElement = document.getElementById("root");
@@ -21,15 +20,11 @@ root.render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline>
-            <BrowserRouter>
-              <HelmetProvider>
-                <App />
-              </HelmetProvider>
-            </BrowserRouter>
-          </CssBaseline>
-        </ThemeProvider>
+        <BrowserRouter>
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </StrictMode>,
