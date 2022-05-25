@@ -23,5 +23,4 @@ export const loaderSlice = createSlice({
 });
 
 export const { loaderActive, loaderDisabled } = loaderSlice.actions;
-
 export default loaderSlice;

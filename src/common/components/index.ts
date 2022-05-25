@@ -1,6 +1,7 @@
 export { default as Loader } from "./Loader/Loader";
 export { default as Modal } from "./Modal/Modal";
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
+export { default as ToggleSwitch } from "./ToggleSwitch/ToggleSwitch";
 export { default as Counter } from "./Counter/Counter";
 export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as Todo } from "./Todos/Todo";

@@ -3,32 +3,36 @@ import { register, logIn, logOut } from "entities/auth/api/auth";
 import { RegistrationCredentials, LoginCredentials } from "models/auth";
 import { AuthActions } from "entities/auth/model/types";
 import { token } from "common/api/instance";
+import { UserCredential } from "firebase/auth";
 
 import {
   loaderActive,
   loaderDisabled,
 } from "entities/loader/redux/loaderSlice";
 
+interface Creds {
+  accessToken: string;
+  user: UserCredential | undefined;
+}
+
 export const signIn = createAsyncThunk(
   AuthActions.AUTH_SIGNIN,
-  async (credentials: LoginCredentials, thunkAPI) => {
-    thunkAPI.dispatch(loaderActive());
+  async (credentials: LoginCredentials, { rejectWithValue, dispatch }) => {
+    dispatch(loaderActive());
 
     try {
       const response = await logIn(credentials);
-
       const data = {
         accessToken: response.user.refreshToken,
         user: response.user,
       };
-
       token.set(response.user.refreshToken);
 
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error);
+      rejectWithValue(error);
     } finally {
-      thunkAPI.dispatch(loaderDisabled());
+      dispatch(loaderDisabled());
     }
   },
 );

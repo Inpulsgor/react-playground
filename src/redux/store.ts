@@ -11,14 +11,14 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === "development", // enabled devTools only for development mode
 });
 
-export type AppState = ReturnType<typeof rootReducer>;
+export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  AppState,
-  undefined,
-  Action<string>
->;
+// export type AppThunk<ReturnType = void> = ThunkAction<
+//   ReturnType,
+//   AppState,
+//   undefined,
+//   Action<string>
+// >;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
