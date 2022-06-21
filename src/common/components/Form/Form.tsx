@@ -10,7 +10,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import RegisterForm from "./RegisterForm/RegisterForm";
 
 const Form: FC<FormProps> = ({ type = "login" }) => {
-  const isRegister = type === "register";
+  const isRegisterType = type === "register";
 
   return (
     <Box sx={styles.wrapper}>
@@ -19,17 +19,17 @@ const Form: FC<FormProps> = ({ type = "login" }) => {
       </Avatar>
 
       <Typography sx={styles.title} component="span" variant="h5">
-        {isRegister ? "Sign Up" : "Sign In"}
+        {isRegisterType ? "Sign Up" : "Sign In"}
       </Typography>
 
-      {isRegister ? <RegisterForm /> : <LoginForm />}
+      {isRegisterType ? <RegisterForm /> : <LoginForm />}
 
       <Button
         sx={styles.link}
         component={RouterLink}
-        to={isRegister ? ROUTES.AUTH : ROUTES.REGISTRATION}
+        to={isRegisterType ? ROUTES.AUTH : ROUTES.REGISTRATION}
       >
-        {isRegister
+        {isRegisterType
           ? "Already have an account? Sign in"
           : "Don't have an account? Sign Up"}
       </Button>

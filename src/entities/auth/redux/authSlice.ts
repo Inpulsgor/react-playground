@@ -14,7 +14,24 @@ const initialState: AuthState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    setCredentials: (state, { payload }) => ({
+      isAuthenticated: true,
+      accessToken: payload.token,
+      user: payload.user,
+      status: REQUEST_STATUS.SUCCEEDED,
+      error: null,
+    }),
+    signInError: (state, { payload }) => ({
+      ...state,
+      error: payload,
+    }),
+    signOutSuccess: () => initialState,
+    signOutError: (state, { payload }) => ({
+      ...state,
+      error: payload,
+    }),
+  },
   extraReducers: builder => {
     builder.addCase(signIn.pending, state => {
       state.status = REQUEST_STATUS.PENDING;
@@ -36,5 +53,7 @@ const authSlice = createSlice({
     });
   },
 });
+
+export const { setCredentials } = authSlice.actions;
 
 export default authSlice;
