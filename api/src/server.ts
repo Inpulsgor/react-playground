@@ -1,7 +1,9 @@
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 import userRouter from "./routers/user";
+import postRouter from "./routers/post";
 
 dotenv.config();
 
@@ -38,6 +40,7 @@ class AppServer {
 
   initRoutes() {
     this.server?.use("/auth", userRouter);
+    this.server?.use("/posts", postRouter);
   }
 
   async initDatabase() {

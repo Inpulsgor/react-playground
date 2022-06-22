@@ -2,10 +2,10 @@
   "name": "holly-pizza-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --config nodemon.json src/start.ts",
+    "start": "nodemon --config nodemon.json src/index.ts",
     "build": "rimraf dist && tsc",
     "lint": "eslint . --fix",
     "debug": "nodemon --config nodemon.json --inspect-brk src/index.ts"

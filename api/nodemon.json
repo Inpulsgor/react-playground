@@ -8,5 +8,6 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "ext": ".js,.json,.ts"
+  "ext": ".ts,.js",
+  "exec": "ts-node --files ./src/index.ts"
 }

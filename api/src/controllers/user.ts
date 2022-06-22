@@ -1,13 +1,13 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import userModel from "../models/user";
+import UserModel from "../models/user";
 
 class UserController {
   async login(req: Request, res: Response) {
     try {
-      const user = await userModel.findOne({ email: req.body.email });
+      const user = await UserModel.findOne({ email: req.body.email });
 
       if (!user) {
         return res.status(404).json({
@@ -40,7 +40,7 @@ class UserController {
 
       res.status(200).json({
         success: true,
-        ...userData,
+        userData,
         token,
       });
     } catch (error) {
@@ -64,7 +64,7 @@ class UserController {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(userPassword, salt);
 
-      const doc = new userModel({
+      const doc = new UserModel({
         username: req.body.username,
         email: req.body.email,
         password: hashedPassword,
@@ -86,7 +86,7 @@ class UserController {
 
       res.status(200).json({
         success: true,
-        ...userData,
+        userData,
         token,
       });
     } catch (error) {
@@ -100,8 +100,19 @@ class UserController {
 
   async user(req: Request, res: Response) {
     try {
-      res.json({
+      const user = await UserModel.findById(req.userId);
+
+      if (!user) {
+        return res.status(404).json({
+          message: "User not found",
+        });
+      }
+
+      const { password, ...userData } = user._doc;
+
+      res.status(200).json({
         success: true,
+        userData,
       });
     } catch (error) {
       console.log("error", error);

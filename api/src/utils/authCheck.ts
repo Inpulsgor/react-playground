@@ -1,32 +1,22 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-interface RequestCustom extends Request {
-  userId: string;
-}
+type Decoded = {
+  _id: string;
+};
 
 export const authCheck = (req: Request, res: Response, next: NextFunction) => {
-  const token = (req.headers.authorization || "").replace(/Bearer\s?/, "");
-
-  console.log("token --->", token);
+  const bearerToken = req.headers.authorization || "";
+  const token = bearerToken ? bearerToken.replace(/Bearer\s?/, "") : "";
 
   if (token) {
     try {
       const decoded = jwt.verify(
         token,
         process.env.REACT_APP_JWT_KEY! || "secretKey",
-      );
+      ) as Decoded;
 
-      console.log(
-        "process.env.REACT_APP_JWT_KEY",
-        process.env.REACT_APP_JWT_KEY,
-      );
-
-      // const customReq = req as RequestCustom;
-
-      console.log("decoded", decoded);
-
-      // customReq.userId = decoded._id;
+      req.userId = decoded._id;
 
       next();
     } catch (error) {
