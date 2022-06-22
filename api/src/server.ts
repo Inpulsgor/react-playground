@@ -5,8 +5,11 @@ import userRouter from "./routers/user";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 8000;
-const URL = process.env.MONGODB_URL || "";
+const PORT = process.env.REACT_APP_PORT || 8000;
+const USERNAME = process.env.REACT_APP_MONGO_USERNAME;
+const PASSWORD = process.env.REACT_APP_MONGO_PASSWORD;
+const CLUSTER = process.env.REACT_APP_MONGO_CLUSTER;
+const DBNAME = process.env.REACT_APP_MONGO_DBNAME;
 
 class AppServer {
   public server: Application | null;
@@ -39,7 +42,9 @@ class AppServer {
 
   async initDatabase() {
     await mongoose
-      .connect(URL)
+      .connect(
+        `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER}.lgjrr.mongodb.net/${DBNAME}?retryWrites=true&w=majority`,
+      )
       .then(res => console.log("DB connected", res))
       .catch(err => console.log("DB errpr", err));
   }

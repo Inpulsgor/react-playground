@@ -1,8 +1,20 @@
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema(
+interface DocumentResult {
+  _doc: any;
+}
+
+interface UserModelTypes extends DocumentResult {
+  _id: string;
+  username: string;
+  email: string;
+  password: string;
+  avatar: string;
+}
+
+const userSchema = new Schema<UserModelTypes>(
   {
-    userName: {
+    username: {
       type: String,
       required: true,
     },
@@ -25,4 +37,6 @@ const userSchema = new Schema(
   },
 );
 
-export default model("User", userSchema);
+const userModel = model<UserModelTypes>("User", userSchema);
+
+export default userModel;
