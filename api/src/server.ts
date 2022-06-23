@@ -43,6 +43,7 @@ class AppServer {
     this.server?.use("/auth", userRouter);
     this.server?.use("/posts", postRouter);
     this.server?.use("/upload", uploadRouter);
+    this.server?.use("/uploads", express.static("uploads"));
   }
 
   async initDatabase() {

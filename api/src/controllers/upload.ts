@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
 class UploadController {
-  async getPosts(req: Request, res: Response) {
+  async upload(req: Request, res: Response) {
     res.json({
-      url: `/upload/${req.file?.originalname}`,
+      url: `/uploads/${req.file?.originalname}`,
     });
   }
 }
