@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import userRouter from "./routers/user";
 import postRouter from "./routers/post";
+import uploadRouter from "./routers/upload";
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ class AppServer {
   initRoutes() {
     this.server?.use("/auth", userRouter);
     this.server?.use("/posts", postRouter);
+    this.server?.use("/upload", uploadRouter);
   }
 
   async initDatabase() {
