@@ -14,11 +14,3 @@ export enum REQUEST_STATUS {
   SUCCEEDED = "SUCCEEDED",
   FAILED = "FAILED",
 }
-
-export enum ROUTES {
-  HOME = "/",
-  AUTH = "/auth",
-  RECOVERY = "/auth/recovery",
-  REGISTRATION = "/auth/registration",
-  NOT_FOUND = "*",
-}

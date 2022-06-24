@@ -8,10 +8,9 @@ import {
   FormControl,
 } from "@mui/material";
 import { useAppDispatch } from "redux/store";
-// import { signIn } from "entities/auth/redux/authOperations";
+import { signIn } from "entities/auth/redux/authOperations";
 import { FormValues } from "./LoginForm.types";
 import { styles } from "./LoginForm.styles";
-import { LoginCredentials } from "models/auth";
 
 const defaultValues = {
   email: "",
@@ -21,18 +20,26 @@ const defaultValues = {
 
 const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
-  const { control, handleSubmit } = useForm<FormValues>({
+  const {
+    control,
+    handleSubmit,
+    // setError,
+    formState: {
+      errors,
+      // isValid
+    },
+  } = useForm<FormValues>({
     defaultValues,
     mode: "onBlur",
   });
 
   const handleFormSubmit: SubmitHandler<FormValues> = ({ password, email }) => {
-    const credentials: LoginCredentials = {
-      email: email,
-      password: password,
-    };
-
-    // dispatch(signIn(credentials));
+    dispatch(
+      signIn({
+        email: email,
+        password: password,
+      }),
+    );
   };
 
   return (
@@ -44,12 +51,13 @@ const LoginForm: FC = () => {
       <Controller
         name="email"
         control={control}
-        rules={{ required: true }}
+        rules={{ required: "Email is required" }}
         render={({ field: { value, onChange } }) => (
           <TextField
             sx={styles.input}
             label="Email Address"
             value={value}
+            helperText={errors.email?.message}
             onChange={onChange}
             fullWidth
           />
@@ -59,13 +67,14 @@ const LoginForm: FC = () => {
       <Controller
         name="password"
         control={control}
-        rules={{ required: true }}
+        rules={{ required: "Password is required" }}
         render={({ field: { value, onChange } }) => (
           <TextField
             sx={styles.input}
             label="Password"
             type="password"
             value={value}
+            helperText={errors.password?.message}
             onChange={onChange}
             fullWidth
           />
@@ -78,8 +87,8 @@ const LoginForm: FC = () => {
         control={
           <Controller
             name="agree"
-            rules={{ required: true }}
             control={control}
+            rules={{ required: true }}
             render={({ field: { onChange, value } }) => (
               <Checkbox
                 sx={styles.checkbox}

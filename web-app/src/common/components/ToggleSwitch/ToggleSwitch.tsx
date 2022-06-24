@@ -1,5 +1,9 @@
 import { FC } from "react";
 import { FormGroup, FormControlLabel, Switch } from "@mui/material";
+import {
+  LightMode as LightModeIcon,
+  DarkMode as DarkModeIcon,
+} from "@mui/icons-material";
 import { useAppDispatch } from "redux/store";
 import { toggleTheme } from "entities/theme/redux/themeSlice";
 import { useTheme } from "common/hooks/useTheme";
@@ -24,7 +28,13 @@ const ToggleSwitch: FC = () => {
             onChange={handleToggle}
           />
         }
-        label={isThemeDark ? "Dark" : "Light"}
+        label={
+          isThemeDark ? (
+            <DarkModeIcon />
+          ) : (
+            <LightModeIcon sx={{ color: "orange" }} />
+          )
+        }
       />
     </FormGroup>
   );

@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signIn } from "entities/auth/redux/authOperations";
-import { AuthState } from "entities/auth/model/types";
+import {
+  signIn,
+  signUp,
+  signOut,
+  getCurrentUser,
+} from "entities/auth/redux/authOperations";
+import { AuthState, AuthActions } from "entities/auth/model/types";
 import { REQUEST_STATUS } from "types/enum";
 
 const initialState: AuthState = {
@@ -12,27 +17,28 @@ const initialState: AuthState = {
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: AuthActions.AUTH,
   initialState,
-  reducers: {
-    setCredentials: (state, { payload }) => ({
-      isAuthenticated: true,
-      accessToken: payload.token,
-      user: payload.user,
-      status: REQUEST_STATUS.SUCCEEDED,
-      error: null,
-    }),
-    signInError: (state, { payload }) => ({
-      ...state,
-      error: payload,
-    }),
-    signOutSuccess: () => initialState,
-    signOutError: (state, { payload }) => ({
-      ...state,
-      error: payload,
-    }),
-  },
+  reducers: {},
   extraReducers: builder => {
+    builder.addCase(signUp.pending, state => {
+      state.status = REQUEST_STATUS.PENDING;
+      state.error = null;
+    });
+    builder.addCase(signUp.fulfilled, (state, action) => {
+      state.isAuthenticated = true;
+      state.accessToken = action.payload?.accessToken;
+      state.user = action.payload?.user;
+      state.status = REQUEST_STATUS.SUCCEEDED;
+      state.error = null;
+    });
+    builder.addCase(signUp.rejected, (state, action) => {
+      state = {
+        ...initialState,
+        error: action.error,
+        status: REQUEST_STATUS.FAILED,
+      };
+    });
     builder.addCase(signIn.pending, state => {
       state.status = REQUEST_STATUS.PENDING;
       state.error = null;
@@ -51,9 +57,35 @@ const authSlice = createSlice({
         status: REQUEST_STATUS.FAILED,
       };
     });
+    builder.addCase(signOut.pending, state => {
+      state.status = REQUEST_STATUS.PENDING;
+      state.error = null;
+    });
+    builder.addCase(signOut.fulfilled, () => initialState);
+    builder.addCase(signOut.rejected, (state, action) => {
+      state = {
+        ...state,
+        error: action.error,
+        status: REQUEST_STATUS.FAILED,
+      };
+    });
+    builder.addCase(getCurrentUser.pending, state => {
+      state.isAuthenticated = true;
+      state.status = REQUEST_STATUS.PENDING;
+      state.error = null;
+    });
+    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
+      state.status = REQUEST_STATUS.SUCCEEDED;
+      state.user = action.payload?.user;
+    });
+    builder.addCase(getCurrentUser.rejected, (state, action) => {
+      state = {
+        ...initialState,
+        error: action.error,
+        status: REQUEST_STATUS.FAILED,
+      };
+    });
   },
 });
-
-export const { setCredentials } = authSlice.actions;
 
 export default authSlice;

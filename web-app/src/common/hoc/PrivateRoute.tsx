@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useAuth } from "common/hooks/useAuth";
-import { ROUTES } from "types/enum";
+import { ROUTES } from "routes";
 
 interface PrivateRouteProps {
   component: FC;

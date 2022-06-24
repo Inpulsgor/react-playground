@@ -32,6 +32,10 @@
       "title": "Profile",
       "description": "Profile page description"
     },
+    "blog": {
+      "title": "Blog",
+      "description": "Blog page description"
+    },
     "notFound": {
       "title": "404",
       "description": "Page not found"

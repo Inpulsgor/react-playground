@@ -37,6 +37,9 @@ let lightTheme: Theme = createTheme({
       primary: "#3B434E",
       secondary: "#FFF",
     },
+    error: {
+      main: "#FF1B1C",
+    },
   },
   typography: {
     fontFamily: [

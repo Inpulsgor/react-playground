@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Avatar, Button, Typography } from "@mui/material";
 import { LockOutlined as LockOutlinedIcon } from "@mui/icons-material";
-import { ROUTES } from "types/enum";
+import { ROUTES } from "routes";
 import { FormProps } from "./Form.types";
 import { styles } from "./Form.styles";
 

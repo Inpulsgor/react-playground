@@ -8,8 +8,8 @@ import {
   Checkbox,
   Grid,
 } from "@mui/material";
-// import { useAppDispatch } from "common/hooks/useSelector";yarn
-// import { signUp } from "entities/auth/redux/authOperations";
+import { useAppDispatch } from "redux/store";
+import { signUp } from "entities/auth/redux/authOperations";
 import { FormData } from "./RegisterForm.types";
 import { styles } from "./RegisterForm.styles";
 
@@ -22,16 +22,16 @@ const defaultValues = {
 };
 
 const RegisterForm: FC = () => {
+  const dispatch = useAppDispatch();
   const { control, handleSubmit } = useForm<FormData>({
     defaultValues,
   });
-  // const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<FormData> = inputValues => {
     const { firstName, lastName, email, password, agreement } = inputValues;
     console.log("inputValues", firstName, lastName, email, password, agreement);
 
-    // dispatch(signUp({ email, password }));
+    dispatch(signUp({ username: `${firstName} ${lastName}`, email, password }));
   };
 
   return (

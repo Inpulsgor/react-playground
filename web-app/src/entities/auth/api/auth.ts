@@ -1,19 +1,21 @@
+import { api } from "common/api/instance";
 import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
-import { auth } from "common/api/firebase";
-import { LoginCredentials, RegistrationCredentials } from "models/auth";
+  LoginResponse,
+  LoginCredentials,
+  RegisterResponse,
+  RegisterCredentials,
+  LogoutResponse,
+  LogoutCredentials,
+  CurrentUserResponse,
+} from "models/auth";
 
-export const register = ({ email, password }: RegistrationCredentials) => {
-  return createUserWithEmailAndPassword(auth, email, password);
-};
+export const register = (credentials: RegisterCredentials) =>
+  api.post<RegisterResponse>("/auth/register", credentials);
 
-export const logIn = ({ email, password }: LoginCredentials) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
+export const logIn = (credentials: LoginCredentials) =>
+  api.post<LoginResponse>("/auth/login", credentials);
 
-export const logOut = () => {
-  return signOut(auth);
-};
+export const logOut = (credentials: LogoutCredentials) =>
+  api.post<LogoutResponse>("/auth/user", credentials);
+
+export const getUser = () => api.get<CurrentUserResponse>("/auth/user");
