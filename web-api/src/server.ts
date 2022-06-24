@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { userRouter, postRouter, uploadRouter } from "./routers";
 
@@ -13,51 +14,52 @@ const CLUSTER = process.env.REACT_APP_MONGO_CLUSTER;
 const DBNAME = process.env.REACT_APP_MONGO_DBNAME;
 
 class AppServer {
-  public server: Application | null;
-  public port: string | number;
+	public server: Application | null;
+	public port: string | number;
 
-  constructor() {
-    this.server = null;
-    this.port = PORT;
-  }
+	constructor() {
+		this.server = null;
+		this.port = PORT;
+	}
 
-  async start() {
-    this.initServer();
-    this.initMiddleware();
-    this.initRoutes();
-    await this.initDatabase();
-    this.startListening();
-  }
+	async start() {
+		this.initServer();
+		this.initMiddleware();
+		this.initRoutes();
+		await this.initDatabase();
+		this.startListening();
+	}
 
-  initServer() {
-    this.server = express();
-  }
+	initServer() {
+		this.server = express();
+	}
 
-  initMiddleware() {
-    this.server?.use(express.json());
-  }
+	initMiddleware() {
+		this.server?.use(express.json());
+		this.server?.use(cors());
+	}
 
-  initRoutes() {
-    this.server?.use("/auth", userRouter);
-    this.server?.use("/posts", postRouter);
-    this.server?.use("/upload", uploadRouter);
-    this.server?.use("/uploads", express.static("uploads"));
-  }
+	initRoutes() {
+		this.server?.use("/auth", userRouter);
+		this.server?.use("/posts", postRouter);
+		this.server?.use("/upload", uploadRouter);
+		this.server?.use("/uploads", express.static("uploads"));
+	}
 
-  async initDatabase() {
-    await mongoose
-      .connect(
-        `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER}.lgjrr.mongodb.net/${DBNAME}?retryWrites=true&w=majority`,
-      )
-      .then(res => console.log("DB connected", res))
-      .catch(err => console.log("DB errpr", err));
-  }
+	async initDatabase() {
+		await mongoose
+			.connect(
+				`mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER}.lgjrr.mongodb.net/${DBNAME}?retryWrites=true&w=majority`
+			)
+			.then((res) => console.log("DB connected", res))
+			.catch((err) => console.log("DB errpr", err));
+	}
 
-  startListening() {
-    this.server?.listen(this.port, (): void =>
-      console.log(`Server Running here 👉 https://localhost:${this.port}`),
-    );
-  }
+	startListening() {
+		this.server?.listen(this.port, (): void =>
+			console.log(`Server Running here 👉 https://localhost:${this.port}`)
+		);
+	}
 }
 
 export default AppServer;
