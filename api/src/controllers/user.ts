@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import UserModel from "../models/user";
+import { UserModel } from "../models";
 
 class UserController {
   async login(req: Request, res: Response) {
@@ -54,12 +53,6 @@ class UserController {
 
   async register(req: Request, res: Response) {
     try {
-      const errors = validationResult(req);
-
-      if (!errors.isEmpty()) {
-        return res.status(400).json(errors.array());
-      }
-
       const userPassword = req.body.password;
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(userPassword, salt);

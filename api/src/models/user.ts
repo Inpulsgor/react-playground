@@ -1,16 +1,5 @@
 import { Schema, model } from "mongoose";
-
-interface DocumentResult {
-  _doc: any;
-}
-
-interface UserModelTypes extends DocumentResult {
-  _id: string;
-  username: string;
-  email: string;
-  password: string;
-  avatar: string;
-}
+import { UserModelTypes } from "types/user";
 
 const userSchema = new Schema<UserModelTypes>(
   {

@@ -5,7 +5,7 @@ type Decoded = {
   _id: string;
 };
 
-export const authCheck = (req: Request, res: Response, next: NextFunction) => {
+const authCheck = (req: Request, res: Response, next: NextFunction) => {
   const bearerToken = req.headers.authorization || "";
   const token = bearerToken ? bearerToken.replace(/Bearer\s?/, "") : "";
 
@@ -32,3 +32,5 @@ export const authCheck = (req: Request, res: Response, next: NextFunction) => {
     });
   }
 };
+
+export default authCheck;

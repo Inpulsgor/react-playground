@@ -2,9 +2,7 @@ import express, { Application } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import userRouter from "./routers/user";
-import postRouter from "./routers/post";
-import uploadRouter from "./routers/upload";
+import { userRouter, postRouter, uploadRouter } from "./routers";
 
 dotenv.config();
 

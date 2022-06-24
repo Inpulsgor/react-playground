@@ -1,19 +1,14 @@
 import { Router } from "express";
-import { createPostValidation } from "../validations/post";
-import { authCheck } from "../utils/authCheck";
-import postController from "../controllers/post";
+import { postValidation } from "../validations/post";
+import { authCheck } from "../middlewares";
+import { PostController } from "../controllers";
 
 const postRouter = Router();
 
-postRouter.get("/", postController.getPosts);
-postRouter.get("/:id", postController.getPost);
-postRouter.post("/", authCheck, createPostValidation, postController.create);
-postRouter.delete("/:id", authCheck, postController.remove); // !TODO: has error
-postRouter.patch(
-  "/:id",
-  authCheck,
-  createPostValidation,
-  postController.update,
-);
+postRouter.get("/", PostController.getPosts);
+postRouter.get("/:id", PostController.getPost);
+postRouter.post("/", authCheck, postValidation, PostController.create);
+postRouter.delete("/:id", authCheck, PostController.remove); // !TODO: has error
+postRouter.patch("/:id", authCheck, postValidation, PostController.update);
 
 export default postRouter;

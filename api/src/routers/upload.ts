@@ -1,15 +1,14 @@
 import { Router } from "express";
-import { authCheck } from "../utils/authCheck";
-import upload from "../utils/storageUpload";
-import uploadController from "../controllers/upload";
+import { authCheck, storageUpload } from "../middlewares";
+import { UploadController } from "../controllers";
 
 const uploadRouter = Router();
 
 uploadRouter.post(
   "/",
   authCheck,
-  upload.single("image"),
-  uploadController.upload,
+  storageUpload.single("image"),
+  UploadController.upload,
 );
 
 export default uploadRouter;
